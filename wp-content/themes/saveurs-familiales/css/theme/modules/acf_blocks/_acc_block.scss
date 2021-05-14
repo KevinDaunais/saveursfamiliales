@@ -1,0 +1,90 @@
+// main: ../../theme.scss
+
+
+.accs_block  {
+
+	.acc {
+		position: relative; margin: 0 0 40px 0;
+
+        .toggle {
+            height: 30px; width: 30px; position: relative;
+            @include transition; flex-shrink: 0; margin: 0 0 0 10px;
+
+			&:before, &:after { content: ""; background-color: $primary; position: absolute; }
+
+			&:before {
+				width: 2px;
+				height: 18px;
+				right: 50%;
+                top: 50%;
+				transform: translate(-50%,-50%);
+			}
+
+            &:after {
+                width: 18px;
+                height: 2px;
+                left: 50%;
+                top: 50%;
+				transform: translate(-11px,-50%);
+            }
+        }
+
+		.title {
+			position: relative; cursor: pointer; z-index: 2;
+			display: flex; margin: 0; padding: 0 0 10px 0;
+			display: flex; justify-content: space-between;
+			border-bottom: 1px solid #ebebeb;
+
+            .infos { display: flex; align-items: center; justify-content: space-between; }
+        }
+    
+
+		.wrap-row {
+			padding: 30px;
+
+			.row { margin: 0; display: block; }
+			.col { margin: 0 0 15px 0; }
+		}
+
+		.contents {
+			display: none; position: relative;
+		    padding: 15px 5px 10px 5px;
+            overflow: hidden;
+            
+            .slick-track, .slick-list {
+                width: 100%;
+
+                .slick-slide { width: 100%; }
+            }
+		}
+
+		&.active {
+
+            .toggle {
+                transform: rotate(0);
+            }
+
+            &:before { color: $primary; }
+
+            &:after { background-color: $primary; }
+
+            .toggle {
+
+                //&:after { background-color: #fff; }
+
+				&:before {
+                    opacity: 0;
+                }
+            }
+		}
+	}
+}
+
+/**********************************************************************/
+/* 768 */
+/**********************************************************************/
+
+@media ( max-width: $screen-tablet ) {
+
+	.accs_block { margin-bottom: 30px; }
+}

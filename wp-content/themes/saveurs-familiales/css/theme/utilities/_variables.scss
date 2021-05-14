@@ -1,0 +1,52 @@
+// main: ../theme.scss
+
+/*
+/* Utiliser @primary, @secondary, etc. pour les couleurs.
+/* Utiliser @grey, @darkgray, etc. pour les gris.
+/* Utiliser @serif, @sansserif, etc. pour les fonts
+*/
+
+$white:    #ffffff;
+$gray-1: #f8f9fa;
+$gray-2: #e9ecef;
+$gray-3: #dee2e6;
+$gray-4: #ced4da;
+$gray-5: #adb5bd;
+$gray-6: #6c757d;
+$gray-7: #474747;
+$gray-8: #333333;
+$gray-9: #212529;
+$black:  #000000;
+
+
+$green:   #5F8C2F;
+
+$primary: $green;
+$secondary: $gray-5;
+$dark: $gray-7;
+$color: $gray-8;
+
+$screen-desktop: 1024px;
+$screen-tablet: 768px;
+$screen-phone: 599px;
+$screen-lg-desktop: 1200px;
+
+
+:root {
+    --bg-color: #fff;
+    --text-color: #{$dark};
+    --bg-gray-color: #{$gray-1};
+    --bg-gray1-color: #{$gray-2};
+    --bg-content: #{$gray-3};
+    --bg-content-contrast: #f2f2f2;
+    --color-contrast-low: #d3d3d4;
+}
+
+[data-theme="dark"] {
+    --text-color: #ffffff;
+    --bg-color: #121212;
+    --bg-gray-color: #{$gray-9};
+    --bg-gray1-color: #{$gray-9};
+    --bg-gray2-color: #{$gray-8};
+    --bg-content: #{$gray-9};
+}

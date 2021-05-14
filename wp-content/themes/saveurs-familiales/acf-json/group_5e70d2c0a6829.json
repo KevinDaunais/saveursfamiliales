@@ -1,0 +1,104 @@
+{
+    "key": "group_5e70d2c0a6829",
+    "title": "Options de bloc - Espacement",
+    "fields": [
+        {
+            "key": "field_5e70d2c624c8a",
+            "label": "Espacement en haut",
+            "name": "spacing_top",
+            "type": "range",
+            "instructions": "Par défaut l'espace sera de 30px.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 30,
+            "min": "",
+            "max": 250,
+            "step": 5,
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_5e70d30424c8b",
+            "label": "Espacement en bas",
+            "name": "spacing_bottom",
+            "type": "range",
+            "instructions": "Par défaut l'espace sera de 30px.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 30,
+            "min": "",
+            "max": 400,
+            "step": 5,
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_5e738efa6c901",
+            "label": "Marge en haut",
+            "name": "margin_top",
+            "type": "range",
+            "instructions": 0,
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": -250,
+            "max": 250,
+            "step": 5,
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_5e738f296c903",
+            "label": "Marge en bas",
+            "name": "margin_bottom",
+            "type": "range",
+            "instructions": 0,
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": -250,
+            "max": 250,
+            "step": 5,
+            "prepend": "",
+            "append": "px"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "Options",
+    "modified": 1605621088
+}

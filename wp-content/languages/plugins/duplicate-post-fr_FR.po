@@ -1,0 +1,482 @@
+# Translation of Plugins - Yoast Duplicate Post - Stable (latest release) in French (France)
+# This file is distributed under the same license as the Plugins - Yoast Duplicate Post - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-01-12 13:26:13+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: fr\n"
+"Project-Id-Version: Plugins - Yoast Duplicate Post - Stable (latest release)\n"
+
+#. translators: 1: The page title with a link to the frontend page, 2: The
+#. scheduled date and time.
+#: src/ui/class-classic-editor.php:274
+msgid "This rewritten page %1$s is now scheduled to replace the original page. It will be published on %2$s."
+msgstr "La page réécrite %1$s est planifiée pour remplacer la page originale. Elle sera publiée le %2$s."
+
+#. translators: 1: The post title with a link to the frontend page, 2: The
+#. scheduled date and time.
+#: src/ui/class-classic-editor.php:261
+msgid "This rewritten post %1$s is now scheduled to replace the original post. It will be published on %2$s."
+msgstr "L’article réécrit %1$s est planifié pour remplacer l’article original. Il sera publié le %2$s."
+
+#: src/ui/class-classic-editor.php:235
+msgid "Schedule republish"
+msgstr "Planifier la republication"
+
+#. translators: %s: Date on which the post is to be republished.
+#: src/ui/class-classic-editor.php:218
+msgid "Republish on: %s"
+msgstr "Republier le : %s"
+
+#: src/ui/class-classic-editor.php:195
+msgid "Compare"
+msgstr "Comparer"
+
+#: src/ui/class-classic-editor.php:192
+msgid "Do you want to compare your changes with the original version before merging? Please save any changes first."
+msgstr "Souhaitez-vous comparer les modifications avec la version originale avant la fusion ? Veuillez d’abord enregistrer les modifications."
+
+#. translators: %s: Original item link (to view or edit) or title.
+#: src/ui/class-post-states.php:61
+msgid "Rewrite & Republish of %s"
+msgstr "Réécriture & republication de %s"
+
+#: src/ui/class-row-actions.php:145
+msgctxt "verb"
+msgid "Rewrite & Republish"
+msgstr "Réécrire & republier"
+
+#. translators: %s: Post title.
+#: src/ui/class-row-actions.php:143
+msgid "Rewrite & Republish &#8220;%s&#8221;"
+msgstr "Réécrire & republier « %s »"
+
+#: src/admin/views/options.php:192
+msgid "Show these links"
+msgstr "Afficher ces liens"
+
+#: src/admin/class-options.php:284 src/ui/class-bulk-actions.php:81
+#: src/ui/class-admin-bar.php:109 src/ui/class-admin-bar.php:128
+#: src/ui/class-classic-editor.php:167
+msgid "Rewrite & Republish"
+msgstr "Réécriture & republication"
+
+#: src/admin/class-options.php:239
+msgid "In a metabox in the Edit screen"
+msgstr "Dans une boîte de l’écran d’édition"
+
+#: src/admin/class-options.php:145
+msgid "Post format"
+msgstr "Format d’article"
+
+#: src/class-post-republisher.php:323
+msgid "An error occurred while republishing the post."
+msgstr "Une erreur est survenue lors de la republication de la publication."
+
+#: src/class-post-republisher.php:87 src/ui/class-classic-editor.php:213
+msgid "Republish"
+msgstr "Republier"
+
+#: src/handlers/class-link-handler.php:95
+#: src/handlers/class-link-handler.php:151
+#: src/handlers/class-link-handler.php:223
+msgid "Copy creation failed, could not create a copy."
+msgstr "Échec de la création de la copie."
+
+#: src/handlers/class-link-handler.php:87
+#: src/handlers/class-link-handler.php:143
+msgid "You cannot create a copy of a post which is intended for Rewrite & Republish."
+msgstr "Vous ne pouvez pas créer une copie d’une publication destinée à une réécriture et republication."
+
+#: src/handlers/class-check-changes-handler.php:101
+msgid "&larr; Return to editor"
+msgstr "← Retour à l’éditeur"
+
+#. translators: %s: original item link (to view or edit) or title.
+#: src/handlers/class-check-changes-handler.php:96
+msgid "Compare changes of duplicated post with the original (&#8220;%s&#8221;)"
+msgstr "Comparez les modifications de la publication dupliquée avec l’originale (« %s »)"
+
+#: src/handlers/class-check-changes-handler.php:82
+msgid "Changes overview failed, could not find original post."
+msgstr "Échec de l’aperçu des modifications, impossible de trouver la publication originale."
+
+#. translators: %s: post ID.
+#: src/handlers/class-check-changes-handler.php:69
+msgid "Changes overview failed, could not find post with ID %s."
+msgstr "Échec de l’aperçu des modifications, impossible de trouver la publication avec l’ID %s."
+
+#: src/handlers/class-check-changes-handler.php:53
+msgid "No post has been supplied!"
+msgstr "Aucune publication n’a été fournie !"
+
+#: duplicate-post-admin.php:617
+msgid "You aren't allowed to duplicate this post"
+msgstr "Vous n’avez pas l’autorisation de dupliquer cette publication"
+
+#: duplicate-post-admin.php:802
+msgid "Subscribe"
+msgstr "S’abonner"
+
+#: src/admin/views/options.php:238
+msgid "Update notice"
+msgstr "Notification de mise à jour"
+
+#. translators: 1: Code start tag, 2: Code closing tag, 3: Link start tag to
+#. the template tag documentation, 4: Link closing tag.
+#: src/admin/views/options.php:218
+msgid "You can also use the template tag %1$sduplicate_post_clone_post_link( $link, $before, $after, $id )%2$s. %3$sMore info on the template tag%4$s."
+msgstr "Vous pouvez aussi utiliser le marqueur de modèle %1$sduplicate_post_clone_post_link( $link, $before, $after, $id )%2$s. %3$sPlus d’info sur le marqueur de modèle%4$s."
+
+#. translators: %s: Post title.
+#: src/ui/class-row-actions.php:113
+msgid "New draft of &#8220;%s&#8221;"
+msgstr "Nouveau brouillon de « %s »"
+
+#: src/ui/class-row-actions.php:90
+msgctxt "verb"
+msgid "Clone"
+msgstr "Cloner"
+
+#. translators: %s: post title
+#: src/ui/class-metabox.php:96
+msgid "The original item this was copied from is: <span class=\"duplicate_post_original_item_title_span\">%s</span>"
+msgstr "L’élément d’origine qui a servi de copie est : <span class=\"duplicate_post_original_item_title_span\">%s</span>"
+
+#: src/ui/class-column.php:133
+msgid "The original item this was copied from is: <span class=\"duplicate_post_original_item_title_span\"></span>"
+msgstr "L’élément d’origine qui a servi de copie est : <span class=\"duplicate_post_original_item_title_span\"></span>"
+
+#: src/ui/class-column.php:128 src/ui/class-metabox.php:85
+msgid "Delete reference to original item."
+msgstr "Supprimer la référence à l’élément original."
+
+#: duplicate-post-admin.php:791
+msgid "Email Address"
+msgstr "Adresse e-mail"
+
+#. translators: 1: Yoast
+#: duplicate-post-admin.php:784
+msgid "If you want to stay up to date about all the exciting developments around Duplicate Post, subscribe to the %1$s newsletter!"
+msgstr "Si vous souhaitez vous tenir au courant des développements de Duplicate Post, abonnez-vous à la newsletter de %1$s !"
+
+#. Author URI of the plugin
+msgid "https://yoast.com"
+msgstr "https://yoast.com"
+
+#. Author of the plugin
+msgid "Enrico Battocchi & Team Yoast"
+msgstr "Enrico Battocchi & l’équipe Yoast"
+
+#. Plugin URI of the plugin
+msgid "https://yoast.com/wordpress/plugins/duplicate-post/"
+msgstr "https://yoast.com/wordpress/plugins/duplicate-post/"
+
+#. Plugin Name of the plugin
+msgid "Yoast Duplicate Post"
+msgstr "Yoast Duplicate Post"
+
+#. translators: %s: Post title.
+#: src/ui/class-row-actions.php:88
+msgid "Clone &#8220;%s&#8221;"
+msgstr "Cloner « %s »"
+
+#. translators: %s: Original item link (to view or edit) or title.
+#: src/ui/class-post-states.php:67
+msgid "Original: %s"
+msgstr "Original : %s"
+
+#: src/ui/class-column.php:71
+msgid "Original item"
+msgstr "Élément original"
+
+#: src/admin/class-options.php:259
+msgid "After the title in the Post list"
+msgstr "Après le titre dans la liste des publications"
+
+#: src/admin/class-options.php:252
+msgid "You'll also be able to delete the reference to the original item with a checkbox in Quick Edit"
+msgstr "Vous pourrez également effacer la référence à l’élément original avec une case à cocher en modification rapide"
+
+#: src/admin/class-options.php:249
+msgid "In a column in the Post list"
+msgstr "Dans une colonne de la liste des publications"
+
+#: src/admin/class-options.php:242
+msgid "You'll also be able to delete the reference to the original item with a checkbox"
+msgstr "Vous pourrez également effacer la référence à l’élément original avec une case à cocher"
+
+#: src/admin/views/options.php:229
+msgid "Show original item:"
+msgstr "Afficher l’élément original :"
+
+#: src/admin/views/options.php:22
+msgid "Settings sections"
+msgstr "Sections de réglages"
+
+#: duplicate-post.php:90
+msgid "Settings for Duplicate Post"
+msgstr "Réglages de Duplicate Post"
+
+#. translators: %s: post title
+#: src/class-utils.php:144
+msgid "View &#8220;%s&#8221;"
+msgstr "Afficher « %s »"
+
+#. translators: %s: post title
+#: src/class-utils.php:135
+msgid "Preview &#8220;%s&#8221;"
+msgstr "Prévisualiser « %s »"
+
+#. translators: %s: post title
+#: src/class-utils.php:124
+msgid "Edit &#8220;%s&#8221;"
+msgstr "Modifier « %s »"
+
+#. translators: %s: Yoast Duplicate Post version.
+#: duplicate-post-admin.php:222
+msgid "What's new in Yoast Duplicate Post version %s:"
+msgstr "Ce qu’il y a de neuf dans Yoast Duplicate Post version %s :"
+
+#: src/handlers/class-link-handler.php:62
+#: src/handlers/class-link-handler.php:118
+#: src/handlers/class-link-handler.php:190
+msgid "Current user is not allowed to copy posts."
+msgstr "L’utilisateur actuel n’a pas les droits pour copier les publications."
+
+#: src/admin/class-options.php:168
+msgid "you probably want this unchecked, unless you have very special requirements"
+msgstr "mieux vaut que vous laissiez cette case vide, à moins d’avoir des exigences particulières"
+
+#: duplicate-post-admin.php:771
+msgid "Documentation"
+msgstr "Documentation"
+
+#: src/admin/class-options.php:265
+msgid "Show update notice"
+msgstr "Afficher la notification de mise à jour"
+
+#: src/admin/class-options.php:310
+msgid "Bulk Actions"
+msgstr "Actions groupées"
+
+#: src/admin/class-options.php:220
+msgid "You can use * to match zero or more alphanumeric characters or underscores: e.g. field*"
+msgstr "Vous pouvez utiliser * pour remplacer zéro ou plusieurs caractères alphanumériques ou tirets du bas : par ex. champ*."
+
+#: src/admin/class-options.php:189
+msgid "Menu order"
+msgstr "Ordre de menu"
+
+#: src/admin/class-options.php:152
+msgid "Author"
+msgstr "Auteur"
+
+#: src/admin/class-options.php:138
+msgid "Template"
+msgstr "Modèle"
+
+#: src/admin/class-options.php:131
+msgid "Featured Image"
+msgstr "Image mise en avant"
+
+#. translators: %s: Number of posts copied.
+#: src/watchers/class-link-actions-watcher.php:76
+#: src/watchers/class-bulk-actions-watcher.php:58
+msgid "%s item copied."
+msgid_plural "%s items copied."
+msgstr[0] "%s élément copié."
+msgstr[1] "%s éléments copiés."
+
+#: src/admin/views/options.php:176 src/admin/views/options.php:213
+msgid "Whether the links are displayed for custom post types registered by themes or plugins depends on their use of standard WordPress UI elements."
+msgstr "L’affichage des liens pour les types de publications personnalisés déclarés par des thèmes ou des extensions dépend de leur respect des standards WordPress dans leur utilisation des éléments d’interface utilisateur (UI)."
+
+#: src/admin/views/options.php:174
+msgid "Select the post types you want the plugin to be enabled for."
+msgstr "Sélectionnez les types de publications que vous autorisez l’extension à dupliquer."
+
+#: src/admin/views/options.php:164 src/admin/views/options.php:168
+msgid "Enable for these post types"
+msgstr "Activer pour ces types de publications"
+
+#: src/admin/views/options.php:157
+msgid "Passwords and contents of password-protected posts may become visible to undesired users and visitors."
+msgstr "Les mots de passe et les publications protégées par mot de passe peuvent devenir visibles aux yeux de tous les utilisateurs et des visiteurs."
+
+#: src/admin/views/options.php:129
+msgid "Show/hide private taxonomies"
+msgstr "Afficher/cacher les taxonomies privées"
+
+#: src/admin/class-options.php:211
+msgid "Add this number to the original menu order (blank or zero to retain the value)"
+msgstr "Ajouter ce numéro à l’ordre initial du menu (vide ou zéro pour conserver la valeur)"
+
+#: src/admin/class-options.php:209 src/admin/views/options.php:95
+msgid "Increase menu order by"
+msgstr "Augmenter l’ordre du menu de"
+
+#: src/admin/class-options.php:183
+msgid "except pingbacks and trackbacks"
+msgstr "sauf pingbacks et trackbacks"
+
+#: src/admin/class-options.php:181
+msgid "Comments"
+msgstr "Commentaires"
+
+#: src/admin/class-options.php:174
+msgid "Children"
+msgstr "Enfants"
+
+#: src/admin/class-options.php:166
+msgid "Attachments"
+msgstr "Pièces jointes"
+
+#: src/admin/class-options.php:159
+msgid "Password"
+msgstr "Mot de passe"
+
+#: src/handlers/class-check-changes-handler.php:112
+#: src/admin/class-options.php:124
+msgid "Content"
+msgstr "Contenu"
+
+#: src/handlers/class-check-changes-handler.php:113
+#: src/admin/class-options.php:117
+msgid "Excerpt"
+msgstr "Extrait"
+
+#: src/admin/class-options.php:110
+msgid "Slug"
+msgstr "Identifiant"
+
+#: src/admin/class-options.php:103
+msgid "Status"
+msgstr "État "
+
+#: src/admin/class-options.php:96
+msgid "Date"
+msgstr "Date"
+
+#: src/handlers/class-check-changes-handler.php:111
+#: src/admin/class-options.php:89
+msgid "Title"
+msgstr "Titre"
+
+#: src/admin/views/options.php:60 src/admin/views/options.php:63
+msgid "Post/page elements to copy"
+msgstr "Éléments à copier"
+
+#: src/admin/views/options.php:48 src/admin/views/options.php:189
+msgid "Display"
+msgstr "Afficher"
+
+#: src/admin/views/options.php:39 src/admin/views/options.php:142
+msgid "Permissions"
+msgstr "Droits"
+
+#: src/admin/views/options.php:30 src/admin/views/options.php:57
+msgid "What to copy"
+msgstr "Que copier"
+
+#: duplicate-post-admin.php:623
+msgid "Copy features for this post type are not enabled in options page"
+msgstr "Les fonctionnalités de copie pour ce type de publication ne sont pas activées dans la page d’options."
+
+#. Description of the plugin
+msgid "Clone posts and pages."
+msgstr "Clonez des articles et des pages."
+
+#: duplicate-post.php:91
+msgid "Settings"
+msgstr "Réglages"
+
+#: src/admin/views/options.php:249
+msgid "Save changes"
+msgstr "Enregistrer les modifications"
+
+#: src/admin/class-options.php:300
+msgid "Admin bar"
+msgstr "Barre d’administration"
+
+#: src/admin/class-options.php:305
+msgid "Edit screen"
+msgstr "Écran d’édition"
+
+#: src/admin/class-options.php:295
+msgid "Post list"
+msgstr "Liste des publications"
+
+#: src/admin/views/options.php:204
+msgid "Show links in"
+msgstr "Montrer les liens dans "
+
+#: src/admin/views/options.php:146 src/admin/views/options.php:149
+msgid "Roles allowed to copy"
+msgstr "Rôles autorisés à copier"
+
+#: src/admin/class-options.php:204
+msgid "Suffix to be added after the title, e.g. \"(dup)\" (blank for no suffix)"
+msgstr "Suffixe à ajouter après le titre, par ex : « dup » (laissez vide pour ne pas ajouter de suffixe)."
+
+#: src/admin/class-options.php:202 src/admin/views/options.php:84
+msgid "Title suffix"
+msgstr "Suffixe du titre"
+
+#: src/admin/class-options.php:197
+msgid "Prefix to be added before the title, e.g. \"Copy of\" (blank for no prefix)"
+msgstr "Préfixe à ajouter devant le titre, par ex : « Copie de » (laissez vide pour ne pas ajouter de préfixe)."
+
+#: src/admin/class-options.php:195 src/admin/views/options.php:73
+msgid "Title prefix"
+msgstr "Préfixe du titre"
+
+#: src/admin/views/options.php:118 src/admin/views/options.php:122
+msgid "Do not copy these taxonomies"
+msgstr "Ne pas copier ces taxonomies"
+
+#: src/admin/class-options.php:219
+msgid "Comma-separated list of meta fields that must not be copied."
+msgstr "Liste séparée par des virgules de champs meta qui ne doivent pas être copiés."
+
+#: src/admin/class-options.php:216 src/admin/views/options.php:107
+msgid "Do not copy these fields"
+msgstr "Ne pas copier ces champs"
+
+#: src/admin/class-options-page.php:81 src/ui/class-admin-bar.php:93
+#: src/ui/class-metabox.php:58
+msgid "Duplicate Post"
+msgstr "Duplicate Post"
+
+#: src/admin/class-options-page.php:80 src/admin/views/options.php:16
+msgid "Duplicate Post Options"
+msgstr "Options de Duplicate Post"
+
+#: src/handlers/class-link-handler.php:79
+#: src/handlers/class-link-handler.php:135
+#: src/handlers/class-link-handler.php:207
+msgid "Copy creation failed, could not find original:"
+msgstr "Échec de la copie, impossible de trouver l’original :"
+
+#: src/handlers/class-link-handler.php:67
+#: src/handlers/class-link-handler.php:123
+#: src/handlers/class-link-handler.php:195
+msgid "No post to duplicate has been supplied!"
+msgstr "Vous n’avez sélectionné aucune publication à dupliquer !"
+
+#: src/admin/class-options.php:274 src/ui/class-row-actions.php:115
+msgid "New Draft"
+msgstr "Nouveau brouillon"
+
+#: src/ui/class-admin-bar.php:101 src/ui/class-admin-bar.php:118
+#: src/ui/class-classic-editor.php:138 duplicate-post-common.php:75
+msgid "Copy to a new draft"
+msgstr "Copier dans un nouveau brouillon"
+
+#: src/admin/class-options.php:279 src/ui/class-bulk-actions.php:75
+msgid "Clone"
+msgstr "Dupliquer"

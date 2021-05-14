@@ -1,0 +1,52 @@
+// main: ../../theme.scss
+
+.team__members {
+    margin-bottom: -20px;
+
+	.member {
+        margin-bottom: 20px;
+
+		&:hover {
+
+			.member__content { opacity: 1; visibility: visible; }
+		}
+	}
+
+	.member__container { position: relative; }
+
+	.member__content {
+		@include transition; position: absolute; opacity: 0; visibility: hidden; padding: 20px;
+		top: 0; bottom: 0; left: 0; right: 0; display: flex; flex-direction: column; justify-content: flex-end;
+
+		h5 { margin: 0 0 10px 0; }
+
+		p {
+			margin: 0 0 5px 0;
+
+			&:last-child { margin: 0; }
+		}
+
+		.content__text{ color: #fff; position: relative; z-index: 55; }
+
+		.img__overlay {
+			position: absolute; top: 0; bottom: 0; left: 0; right: 0;
+			background-color: $primary; opacity: 0.7; height: 100%; width: 100%;
+		}
+	}
+
+	.member__img { @include bg-cover; padding-bottom: 100%; width: 100%; filter: grayscale(1); }
+}
+
+/**********************************************************************/
+/* 768px */
+/**********************************************************************/
+
+@media ( max-width: $screen-desktop ) {
+
+    .team__members {
+    
+        .member__content {
+            position: relative; opacity: 1; visibility: visible;
+        }
+    }
+}

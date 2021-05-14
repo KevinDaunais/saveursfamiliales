@@ -1,0 +1,27 @@
+// main: ../../gutenberg.scss
+
+
+.block-editor {
+
+    .wp-block {
+        max-width: 90%;
+    }
+
+    .is-sidebar-opened {
+
+        .interface-complementary-area,
+        .interface-interface-skeleton__sidebar {
+            width: 100%; max-width: 40vw;
+    
+            .components-panel {
+                width: 100%;
+            }
+        }
+    }
+
+    
+
+    .par__flex {
+        max-width: 100% !important; width: 100% !important; left: inherit !important; right: inherit !important; margin-left: 0 !important; margin-right: 0 !important;
+    }
+}

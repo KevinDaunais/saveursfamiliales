@@ -1,0 +1,383 @@
+// main: ../../theme.scss
+
+// METTRE LES CLASSES RÃUTILISABLES ICI AVEC DES INDICATIONS POUR L'INTÃGRATEUR
+
+$ratios: 30,40,45,50,55,60,65,70,75,80,85,90,95,100,110,120,130,140,150,160,170,180,190,200;
+
+$animation-ms: 0, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 750,
+	800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000;
+
+
+//paranim-delay="300" paranim-type="fadeInLeft"
+// Adding the delays from the array in CSS selectors
+@mixin nvs-animation-delay() {
+
+	@each $animation in $animation-ms {
+		[paranim-delay="#{$animation}"] {
+			animation-delay: #{$animation}ms;
+		}
+	}
+}
+
+// Hide animated elements when not on screen
+@media (min-width: 768px) {
+	[paranim-type] {
+		visibility: hidden;
+	}
+}
+
+// Remove animations on small tablets and mobile devices
+@media (max-width: 768px) {
+	[paranim-type] {
+		animation: none;
+		transform: none;
+		transition-property: none;
+	}
+}
+
+// Show elements when on screen
+.animated {
+	visibility: visible;
+}
+
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 300ms;
+}
+
+@mixin transition {
+	transition: 0.3s all ease;
+
+	&.slow { transition: 0.6s all ease; }
+}
+
+@mixin full-width() {
+	width: 100vw; position: relative; left: 50%; 
+	right: 50%; margin-left: -50vw; margin-right: -50vw;
+
+	@media (max-width: 1230px) {
+		transform: none; width: calc(100% + 30px); margin: 0 -15px; left: inherit; right: inherit;
+	}
+}
+
+@mixin gradient($color1: $primary, $color2: $secondary, $pos1: 0%, $pos2: 100%, $deg: 90deg) {
+
+	background: linear-gradient($deg, $color1 $pos1, $color2 $pos2);
+}
+
+@mixin tblr($position: absolute){
+	position: $position; top: 0; right: 0; bottom: 0; left: 0;
+}
+
+@mixin hide(){
+	visibility: hidden; opacity: 0;
+}
+
+@mixin show(){
+	visibility: visible; opacity: 1;
+}
+
+
+@mixin theme_change(){
+    transition-property: background-color,opacity,color;
+    will-change:color, background-color,opacity;
+    transition-duration: .6s, .6s, .6s, .3s;
+    transition-timing-function: linear;
+}
+@mixin layer-hover($offset: 0){ z-index: #{100 + $offset}; }
+
+@mixin remove_scroll(){
+	&::selection				{ width: 0; display: none; }
+	&::-moz-selection			{ width: 0; display: none;  }
+	&::-webkit-scrollbar		{ width: 0; display: none; }
+	&::-webkit-scrollbar-track	{ width: 0; display: none; }
+	&::-webkit-scrollbar-thumb	{ width: 0; display: none; }
+}
+
+@mixin uppercase { text-transform: uppercase; }
+
+@mixin bg-cover {
+	background-position: center; background-size: cover; background-repeat: no-repeat;
+}
+
+@mixin bg-contained {
+	background-position: center; background-size: contain; background-repeat: no-repeat;
+}
+
+@mixin container() {
+	max-width: 1440px; width: 100%; padding: 0 15px; margin: 0 auto;
+}
+
+@mixin responsive-size($property: width, $min-size: 14px, $max-size: 18px, $lower-range: 350px, $upper-range: $screen-lg-desktop, $min: true, $break: false, $max: true) {
+	$size: calc(#{$min-size} + #{(($max-size / ($max-size * 0 + 1)) - ($min-size / ($min-size * 0 + 1)))} * ( (100vw - #{$lower-range}) / #{(($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1)))}));
+
+	@if not $break  {
+		#{$property}: $size;
+	}
+	@else {
+		@media screen and (max-width: $upper-range) { #{$property}: $size; }
+	}
+
+	@if $min {
+		@media screen and (max-width: $lower-range) { #{$property}: $min-size; }
+	}
+	@if $max {
+		@media screen and (min-width: $upper-range) { #{$property}: $max-size; }
+	}
+}
+
+@mixin font-size($min-font-size: 14px, $max-font-size: 18px, $lower-range: 350px, $upper-range: $screen-lg-desktop, $min: true, $break: false, $max: true) {
+	@include responsive-size(font-size, $min-font-size, $max-font-size, $lower-range, $upper-range, $min, $break, $max);
+}
+
+//converts .psd letter spacing value to css value
+@mixin letter-spacing($value: normal){
+	@if $value != normal {
+		letter-spacing: #{($value / 1000)}em;
+	}
+	@else {
+		letter-spacing: normal;
+	}
+}
+
+@mixin width($max,$desktop:50,$tablet:50,$mobile:100) {
+	width: #{1% * $max};
+
+	@media ( max-width: 1279px ) { width: #{1% * $desktop};  }
+	@media ( max-width: 1023px ) { width: #{1% * $tablet};  }
+	@media ( max-width: 767px ) { width: #{1% * $mobile};  }
+
+}
+
+
+@mixin figure-ratios() {
+
+	@each $ratio in $ratios {
+
+		.ratio--#{$ratio}{
+			width: 100%; height: 0; padding-bottom: #{$ratio + '%'}; @include bg-cover; margin: 0;
+		}
+	}
+}
+
+// @include font-face("birds_of_paradiseregular", font-files("birds_of_paradise__commercial_version-webfont.eot","birds_of_paradise__commercial_version-webfont.eot?#iefix","bird_paradise/birds_of_paradise__commercial_version-webfont.woff","bird_paradise/birds_of_paradise__commercial_version-webfont.ttf"));
+
+
+@include figure-ratios();
+
+@mixin rotate {
+
+	&.oneheighty {
+		-webkit-transform: rotate(-180deg);
+		transform: rotate(-180deg);
+	}
+
+	&.ninety {
+		-webkit-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+	}
+
+	&.zero {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	&.plusninety {
+		-webkit-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+}
+
+@keyframes nav_appear  {
+	from {
+		top: -100px;
+	}
+
+	to {
+		top: 80px;
+	}
+}
+
+// Show elements when on screen
+.animated {
+	visibility: visible;
+}
+
+/* fade image in after load */
+.lazyload,
+.lazyloading {
+	opacity: 0; @include transition;
+	
+	&.ie--loaded { opacity: 1; transition: opacity 300ms; }
+}
+
+
+.d--flex {
+    display: flex;
+}
+
+.cover--el {
+    position: absolute; top:0; bottom: 0; left: 0; right: 0; @include bg-cover;
+    @include transition;
+}
+
+.wrap {
+
+    &--wrap {
+        flex-wrap: wrap;
+    }
+
+    &--nowrap {
+        flex-wrap: nowrap;
+    }
+}
+
+.el {
+
+    &--full { width: 100%; }
+}
+
+
+.color--lblue {
+    color: $gray-4;
+}
+
+
+.content {
+
+    &--left     { justify-content: flex-start; }
+    &--center   { justify-content: center; }
+    &--right    { justify-content: flex-end; }
+    &--space    { justify-content: space-between; }
+}
+
+.align {
+
+    &--top      { align-items: flex-start; }
+    &--center   { align-items: center; }
+    &--bottom   { align-items: flex-end; }
+}
+
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+//////////////////// FLEX GRID ////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+.x--start   { justify-content: flex-start; }
+.x--end     { justify-content: flex-end; }
+.x--center  { justify-content: center; }
+.x--between { justify-content: space-between; }
+.x--around  { justify-content: space-around; }
+
+.y--start   { align-items: flex-start; }
+.y--end     { align-items: flex-end; }
+.y--center  { align-items: center; }
+
+.flex__grid {
+	display: flex; flex-wrap: wrap;
+	margin: 0 -10px;
+
+	.grid__item {
+		max-width: 100%; width: 100%; padding: 0 10px;
+	}
+
+	&.x--start   { justify-content: flex-start; }
+	&.x--end     { justify-content: flex-end; }
+	&.x--center  { justify-content: center; }
+	&.x--between { justify-content: space-between; }
+	&.x--around  { justify-content: space-around; }
+
+	&.y--start   { align-items: flex-start; }
+	&.y--end     { align-items: flex-end; }
+	&.y--center  { align-items: center; }
+
+	&.cols--2 {
+
+		.grid__item {
+			max-width: 50%;
+
+			@media ( max-width: $screen-phone ) { max-width: 100%; }
+		}
+	}
+	&.cols--3 {
+
+		.grid__item {
+			max-width: 33.33%;
+
+			@media ( max-width: $screen-phone ) { max-width: 100%; }
+		}
+	}
+	&.cols--4 {
+
+		.grid__item {
+			max-width: 25%;
+
+			@media ( max-width: $screen-phone ) { max-width: 100%; }
+		}
+	}
+	&.cols--5 {
+
+		.grid__item {
+			max-width: 20%;
+
+			@media ( max-width: $screen-phone ) { max-width: 100%; }
+		}
+	}
+	&.cols--6 {
+
+		.grid__item {
+			max-width: 16.66%;
+
+			@media ( max-width: $screen-phone ) { max-width: 100%; }
+		}
+	}
+}
+
+
+
+
+.col-sm-3 {
+	flex: 0 0 25%;
+	max-width: 25%;
+
+	@media ( max-width: $screen-phone ) { max-width: 100%; flex: none; width: 100%; }
+}
+
+.col-sm-4 {
+	flex: 0 0 33.33%;
+	max-width: 33.33%;
+	
+	@media ( max-width: $screen-phone ) { max-width: 100%; flex: none; width: 100%; }
+}
+
+.col-sm-6 {
+	flex: 0 0 50%;
+	max-width: 50%;
+	
+	@media ( max-width: $screen-phone ) { max-width: 100%; flex: none; width: 100%; }
+}
+
+.col-sm-12 {
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, 
+.col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, 
+.col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, 
+.col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, 
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, 
+.col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, 
+.col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+	position: relative; width: 100%; min-height: 1px; padding-right: 15px; padding-left: 15px;
+}
+
+.fa {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	stroke-width: 0;
+	stroke: currentColor;
+	fill: currentColor;
+}

@@ -1,0 +1,38 @@
+// compileCompressed: style.css
+
+//////////* FRAMEWORKS *////////////
+@import "vendors/slick/slick";
+@import "vendors/lightgallery.min";
+
+////// * UTILITIES * //////
+@import "theme/utilities/_reboot";
+@import "theme/utilities/_fonts";
+@import "theme/utilities/_variables";
+@import "theme/utilities/_helpers";
+@import "theme/utilities/_buttons";
+////// * BASE * //////
+@import "theme/base/_base";
+
+////// * LAYOUTS * //////
+@import "theme/layout/_404";
+@import "theme/layout/_footer";
+@import "theme/layout/_form";
+@import "theme/layout/_header";
+@import "theme/layout/_theming";
+
+////// * MODULES * //////
+@import "theme/modules/_page_header";
+@import "theme/modules/_grid_cols";
+@import "theme/modules/_search";
+
+////// * ACF BLOCKS * //////
+@import "theme/modules/acf_blocks/_acc_block";
+@import "theme/modules/acf_blocks/_regular_block";
+@import "theme/modules/acf_blocks/_partners_block";
+@import "theme/modules/acf_blocks/_gallery_block";
+@import "theme/modules/acf_blocks/_cta_block";
+@import "theme/modules/acf_blocks/_team_block";
+@import "theme/modules/acf_blocks/_table_block";
+@import "theme/modules/acf_blocks/_doc_block";
+@import "theme/modules/acf_blocks/_slider_block";
+@import "theme/modules/acf_blocks/_video_block";

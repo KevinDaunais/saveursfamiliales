@@ -1,0 +1,617 @@
+{
+    "key": "group_5dcb0c68ccd40",
+    "title": "Élement - Colonnes",
+    "fields": [
+        {
+            "key": "field_5dcb0ca4262dc",
+            "label": "Colonnes",
+            "name": "row",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Ajouter une colonne",
+            "sub_fields": [
+                {
+                    "key": "field_5e6667836fe4c",
+                    "label": "Type de colonne",
+                    "name": "col_type",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "normal": "Texte &nbsp;<i class=\"far fa-edit\"><\/i>",
+                        "slider": "Image(s) &nbsp;<i class=\"far fa-images\"><\/i>"
+                    },
+                    "allow_null": 0,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_5dcb0ca4262de",
+                    "label": "Image(s)",
+                    "name": "slider",
+                    "type": "gallery",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5e6667836fe4c",
+                                "operator": "==",
+                                "value": "slider"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": "",
+                    "max": "",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5dcb0ca4262df",
+                    "label": "Texte",
+                    "name": "text",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5e6667836fe4c",
+                                "operator": "==",
+                                "value": "normal"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
+                },
+                {
+                    "key": "field_5dcb0ca4262e0",
+                    "label": "Boutons",
+                    "name": "button",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5e6667836fe4c",
+                                "operator": "==",
+                                "value": "normal"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_5d43332741c04"
+                    ],
+                    "display": "group",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0,
+                    "sub_fields": [
+                        {
+                            "ID": 0,
+                            "key": "field_5c7d3e8628869",
+                            "label": "Ajouter un\/des bouton(s)?",
+                            "name": "button_block_toggle",
+                            "prefix": "acf",
+                            "type": "true_false",
+                            "value": null,
+                            "menu_order": 0,
+                            "instructions": "",
+                            "required": 0,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": 0,
+                            "parent": "group_5d43332741c04",
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "_name": "button_block_toggle",
+                            "_valid": 1,
+                            "_clone": "field_5dcb0ca4262e0",
+                            "__key": "field_5c7d3e8628869",
+                            "__name": "button_block_toggle",
+                            "__label": "Ajouter un\/des bouton(s)?"
+                        },
+                        {
+                            "ID": 0,
+                            "key": "field_5e70f391966e1",
+                            "label": "Disposition",
+                            "name": "button_block_layout",
+                            "prefix": "acf",
+                            "type": "clone",
+                            "value": null,
+                            "menu_order": 1,
+                            "instructions": "",
+                            "required": 0,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5c7d3e8628869",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "parent": "group_5d43332741c04",
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5e70d7681469e"
+                            ],
+                            "display": "group",
+                            "layout": "table",
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "_name": "button_block_layout",
+                            "_valid": 1,
+                            "sub_fields": [
+                                {
+                                    "ID": 0,
+                                    "key": "field_5c42150af5e4f",
+                                    "label": "Alignement verticale",
+                                    "name": "block_pos",
+                                    "prefix": "acf",
+                                    "type": "button_group",
+                                    "value": null,
+                                    "menu_order": 0,
+                                    "instructions": "",
+                                    "required": 0,
+                                    "id": "",
+                                    "class": "",
+                                    "conditional_logic": 0,
+                                    "parent": "group_5e70d7681469e",
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "y--starts": "<svg class='fa v-align-top'><use xlink:href='#v-align-top'><\/use><\/svg>",
+                                        "y--center": "<svg class='fa v-align-center'><use xlink:href='#v-align-center'><\/use><\/svg>",
+                                        "y--end": "<svg class='fa v-align-bottom'><use xlink:href='#v-align-bottom'><\/use><\/svg>"
+                                    },
+                                    "allow_null": 0,
+                                    "default_value": "",
+                                    "layout": "horizontal",
+                                    "return_format": "value",
+                                    "_name": "block_pos",
+                                    "_valid": 1,
+                                    "_clone": "field_5dcb0ca4262e0",
+                                    "__key": "field_5c42150af5e4f",
+                                    "__name": "block_pos",
+                                    "__label": "Alignement verticale"
+                                },
+                                {
+                                    "ID": 0,
+                                    "key": "field_5c7d3c0f46293",
+                                    "label": "Alignement horizontale",
+                                    "name": "block_col_pos",
+                                    "prefix": "acf",
+                                    "type": "button_group",
+                                    "value": null,
+                                    "menu_order": 1,
+                                    "instructions": "",
+                                    "required": 0,
+                                    "id": "",
+                                    "class": "",
+                                    "conditional_logic": 0,
+                                    "parent": "group_5e70d7681469e",
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "x--start": "<svg class='fa x-align-left'><use xlink:href='#x-align-left'><\/use><\/svg>",
+                                        "x--center": "<svg class='fa x-align-center'><use xlink:href='#x-align-center'><\/use><\/svg>",
+                                        "x--end": "<svg class='fa x-align-right'><use xlink:href='#x-align-right'><\/use><\/svg>"
+                                    },
+                                    "allow_null": 0,
+                                    "default_value": "",
+                                    "layout": "horizontal",
+                                    "return_format": "value",
+                                    "_name": "block_col_pos",
+                                    "_valid": 1,
+                                    "_clone": "field_5dcb0ca4262e0",
+                                    "__key": "field_5c7d3c0f46293",
+                                    "__name": "block_col_pos",
+                                    "__label": "Alignement horizontale"
+                                }
+                            ],
+                            "_clone": "field_5dcb0ca4262e0",
+                            "__key": "field_5e70f391966e1",
+                            "__name": "button_block_layout",
+                            "__label": "Disposition"
+                        },
+                        {
+                            "ID": 0,
+                            "key": "field_5e70f0ffcf53b",
+                            "label": "Boutons",
+                            "name": "buttons",
+                            "prefix": "acf",
+                            "type": "repeater",
+                            "value": null,
+                            "menu_order": 2,
+                            "instructions": "",
+                            "required": 0,
+                            "id": "",
+                            "class": "",
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5c7d3e8628869",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "parent": "group_5d43332741c04",
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "block",
+                            "button_label": "Ajouter un bouton",
+                            "_name": "buttons",
+                            "_valid": 1,
+                            "sub_fields": [
+                                {
+                                    "ID": 0,
+                                    "key": "field_5e8ca8bad3c52",
+                                    "label": "Style du bouton",
+                                    "name": "button_block_style",
+                                    "prefix": "acf",
+                                    "type": "true_false",
+                                    "value": null,
+                                    "menu_order": 0,
+                                    "instructions": "",
+                                    "required": 0,
+                                    "id": "",
+                                    "class": "",
+                                    "conditional_logic": 0,
+                                    "parent": "field_5e70f0ffcf53b",
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "Texte normal",
+                                    "ui_off_text": "Bouton",
+                                    "_name": "button_block_style",
+                                    "_valid": 1
+                                },
+                                {
+                                    "ID": 0,
+                                    "key": "field_5c7d3e55eb446",
+                                    "label": "Libellé",
+                                    "name": "button_block_label",
+                                    "prefix": "acf",
+                                    "type": "text",
+                                    "value": null,
+                                    "menu_order": 1,
+                                    "instructions": "<br>",
+                                    "required": 0,
+                                    "id": "",
+                                    "class": "",
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5c7d3e8628869",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "parent": "field_5e70f0ffcf53b",
+                                    "wrapper": {
+                                        "width": "100",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": "",
+                                    "_name": "button_block_label",
+                                    "_valid": 1
+                                },
+                                {
+                                    "ID": 0,
+                                    "key": "field_5e6fcb20bdcee",
+                                    "label": "Emplacement de l'icône",
+                                    "name": "button_block_icon_pos",
+                                    "prefix": "acf",
+                                    "type": "select",
+                                    "value": null,
+                                    "menu_order": 2,
+                                    "instructions": "",
+                                    "required": 0,
+                                    "id": "",
+                                    "class": "",
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5c7d3e8628869",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "parent": "field_5e70f0ffcf53b",
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "right": "Droite",
+                                        "left": "Gauche"
+                                    },
+                                    "default_value": [],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "_name": "button_block_icon_pos",
+                                    "_valid": 1
+                                },
+                                {
+                                    "ID": 0,
+                                    "key": "field_5e6fca42b1941",
+                                    "label": "Icône",
+                                    "name": "button_block_icon",
+                                    "prefix": "acf",
+                                    "type": "select",
+                                    "value": null,
+                                    "menu_order": 3,
+                                    "instructions": "",
+                                    "required": 0,
+                                    "id": "",
+                                    "class": "",
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5c7d3e8628869",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "parent": "field_5e70f0ffcf53b",
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "none": "Aucun",
+                                        "arrow-left": "Flèche gauche",
+                                        "arrow-right": "Flèche droite",
+                                        "pdf": "PDF",
+                                        "external": "Lien sortant",
+                                        "envelope-o": "Courriel",
+                                        "phone": "Téléphone"
+                                    },
+                                    "default_value": [],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "_name": "button_block_icon",
+                                    "_valid": 1
+                                },
+                                {
+                                    "ID": 0,
+                                    "key": "field_5c7ea64f72b8b",
+                                    "label": "Cible",
+                                    "name": "button_block_target",
+                                    "prefix": "acf",
+                                    "type": "true_false",
+                                    "value": null,
+                                    "menu_order": 4,
+                                    "instructions": "<br>",
+                                    "required": 0,
+                                    "id": "",
+                                    "class": "",
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5c7d3e8628869",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "parent": "field_5e70f0ffcf53b",
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "Externe",
+                                    "ui_off_text": "Interne",
+                                    "_name": "button_block_target",
+                                    "_valid": 1
+                                },
+                                {
+                                    "ID": 0,
+                                    "key": "field_5c7d3e5deb447",
+                                    "label": "Lien ( externe )",
+                                    "name": "button_block_link",
+                                    "prefix": "acf",
+                                    "type": "text",
+                                    "value": null,
+                                    "menu_order": 5,
+                                    "instructions": "",
+                                    "required": 0,
+                                    "id": "",
+                                    "class": "",
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5c7d3e8628869",
+                                                "operator": "==",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "field": "field_5c7ea64f72b8b",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "parent": "field_5e70f0ffcf53b",
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": "",
+                                    "_name": "button_block_link",
+                                    "_valid": 1
+                                },
+                                {
+                                    "ID": 0,
+                                    "key": "field_5d4333cb765d9",
+                                    "label": "Lien ( interne )",
+                                    "name": "button_block_link_intern",
+                                    "prefix": "acf",
+                                    "type": "link",
+                                    "value": null,
+                                    "menu_order": 6,
+                                    "instructions": "<br>",
+                                    "required": 0,
+                                    "id": "",
+                                    "class": "",
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5c7d3e8628869",
+                                                "operator": "==",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "field": "field_5c7ea64f72b8b",
+                                                "operator": "!=",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "parent": "field_5e70f0ffcf53b",
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url",
+                                    "_name": "button_block_link_intern",
+                                    "_valid": 1
+                                }
+                            ],
+                            "_clone": "field_5dcb0ca4262e0",
+                            "__key": "field_5e70f0ffcf53b",
+                            "__name": "buttons",
+                            "__label": "Boutons"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "Élément flex",
+    "modified": 1605621085
+}

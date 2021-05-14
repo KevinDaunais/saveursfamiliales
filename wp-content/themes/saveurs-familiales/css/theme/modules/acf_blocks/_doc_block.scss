@@ -1,0 +1,59 @@
+.doc_block {
+
+	.docs__wrapper { margin: 0 -10px -20px -10px; }
+
+	.doc {
+        margin-bottom: 20px;
+        
+        a { display: block; } 
+
+        &.type--image {
+
+            .doc__wrapper {
+                @include transition; padding: 30px; border: 1px solid $primary; height: 100%;
+                display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+            }
+    
+            svg, .doc__img { @include transition; margin-bottom: 15px; }
+    
+            svg { height: 75px; width: 75px; }
+    
+            .doc__img { @include bg-cover; padding-bottom: 50%; width: 100%; }
+    
+            .doc__txt { @include transition; width: 100%; text-align: center; }
+    
+            .doc__content { width: 100%; text-align: center; }
+    
+            &:hover {
+    
+                .doc__wrapper { border-color: #000; }
+                
+                .doc__txt { color: #000; }
+    
+                svg { fill: #000; }
+            }
+        }
+        
+        &.type--file {
+
+            .doc__content {
+                display: flex; align-items: center; padding: 20px; border: 1px solid #e1e1e1;
+                @include transition;
+
+                svg { width: 40px; height: 40px; color: $primary; margin: 0 20px 0 0; }
+            
+                span { display: block; @extend h6; @include font-size(14px,18px); margin: 0; color: $dark; }
+                small { color: $primary; @include uppercase; font-size: 10px; letter-spacing: 0.1em; font-weight: bold; }
+            
+            
+                &:hover {
+                    background-color: rgba($primary,1); color: #fff; padding-left: 30px;
+                    border-color: $primary;
+            
+                    svg, span, small { color: #fff; }
+                }
+            }
+        }
+    }
+    
+}

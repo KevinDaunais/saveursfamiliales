@@ -1,0 +1,10 @@
+// main: ../../theme.scss
+
+@mixin mont($weight: normal){
+	font-family: 'Montserrat', sans-serif;;
+	font-weight: 400;
+
+    @if $weight == 'medium' { font-weight: 500; }
+	@if $weight == 'bold' { font-weight: 700; }
+}
+

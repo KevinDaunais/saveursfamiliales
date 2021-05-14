@@ -1,0 +1,104 @@
+
+
+.search__overlay {
+	position: fixed; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 300px; @include transition;
+    transform: translateY(-100%); z-index: 9999; display: flex; align-items: center; justify-content: center;
+
+    color: var(--text-color); background-color: var(--bg-color);
+
+	h2 { margin: 0 0 30px 0; text-align: center; }
+
+	.close {
+		position: absolute; right: 45px; top: 45px; display: table;
+		display: flex; align-items: center; justify-content: center; text-align: center;
+		@include uppercase; font-size: 11px; letter-spacing: 0.05em;
+
+
+
+		span {
+			display: table; font-size: 30px; color: #fff; cursor: pointer; margin: 0 0 0 10px;
+			display: flex; align-items: center; justify-content: center; text-align: center;
+			width: 40px; height: 40px; border-radius: 50%; background-color: $primary; text-align: center; @include transition;
+
+			&:hover { background-color: $primary; color: #fff; }
+		}
+	}
+
+	form {
+		max-width: 570px; width: 100%; margin: 40px auto 0 auto;
+		position: relative;
+
+		label {
+			width: 100%;
+
+			input {
+				width: 100%; display: block; height: 42px; line-height: 35px; padding: 5px 15px;
+				background: none; border: none; border-bottom: 1px solid #e1e1e1;
+                @include font-size(16px,18px); letter-spacing: 0.025em;
+
+                color: var(--text-color);
+            }
+
+            input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+            input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+
+            input[type="search"]::-webkit-search-decoration,
+            input[type="search"]::-webkit-search-cancel-button,
+            input[type="search"]::-webkit-search-results-button,
+            input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+			::placeholder { color: var(--text-color); }
+		}
+
+
+		button { position: absolute; top: 0; right: 0; background: none; color: $primary; border: none; height: 35px;  cursor: pointer; }
+	}
+
+	.in__search { @include container; padding-top: 50px; }
+
+	.search__suggestions {
+		display: flex; align-items: center; justify-content: center;
+
+		br { display: none; }
+		a { margin: 0 20px; @include uppercase; @include font-size(11px,12px); letter-spacing: 0.2em; }
+
+		.menu__item { flex: 1; }
+	}
+
+    &.active { transform: translateY(0); }
+
+
+    body.is_IE & {
+        display: table;
+    }
+}
+
+.search {
+
+    .accs_block {
+        margin: 50px 0;
+    }
+}
+
+
+/**********************************************************************/
+/* 1024px */
+/**********************************************************************/
+
+@media ( max-width: $screen-desktop ) {
+
+    .search__overlay {
+        height: 200px;
+
+        .close {
+            right: 20px;
+        }
+
+        .in__search {
+
+            h2 {
+                display: none;
+            }
+        }
+    }
+}

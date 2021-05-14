@@ -1,0 +1,53 @@
+
+.flex__cols {
+    margin: 0 -30px -30px -30px; flex-wrap: unset;
+
+    .grid__item { margin-bottom: 30px; padding: 0 30px; }
+
+    .col__slider {
+        width: 100%;
+
+        .slick-arrow {
+            width: 30px; height: 55px; text-align: center; font-style: normal;
+            position: absolute; z-index: 10;
+
+            i { font-size: 50px; color: #fff; }
+
+            &.prev { left: 15px; top: 50%; transform: translateY(-50%); }
+            &.next { right: 15px; top: 50%; transform: translateY(-50%); }
+        }
+    }
+}
+
+
+/**********************************************************************/
+/* 1024px */
+/**********************************************************************/
+
+@media ( max-width: $screen-tablet ) {
+
+    .flex__cols {
+        flex-wrap: wrap; align-items: inherit; padding: 15px 0;
+
+        .grid__item { max-width: 100%; }
+    }
+}
+
+
+/**********************************************************************/
+/* 599 */
+/**********************************************************************/
+
+@media ( max-width: $screen-phone ) {
+
+    .flex__grid {
+        flex-direction: column;
+
+        .grid__item { width: 100%; max-width: 100%; }
+
+
+        .grid__item { order: 2; }
+
+        .item--slider { order: 1; margin: 0 0 15px 0; }
+    }
+}

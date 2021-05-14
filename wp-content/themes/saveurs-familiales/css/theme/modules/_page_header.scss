@@ -1,0 +1,184 @@
+// main: ../theme.scss
+
+.page__nav {
+    @include container; padding: 20px 15px 25px 15px;
+}
+
+.page__header {
+    padding: 60px 0 45px 0; background-color: $primary; position: relative;
+    @include full-width;
+
+    &.type--color {
+        padding: 60px 0 65px 0;
+
+        body.single & { margin: 0 0 90px 0; }
+    }
+
+    &.with--bgcolor {
+
+        h1 {
+
+            strong { opacity: 0.15; }
+        }
+
+        .content__text {
+            @include container;
+
+            .page__scroll { right: 30px; bottom: 30px; }
+        }
+    }
+
+    &.type--image {
+        background-color: transparent; padding: 0;
+    
+
+        .header__inner {
+
+            .header__wrapper {
+                display: flex; flex-wrap: wrap; margin: 0 -15px; justify-content: flex-end;
+            }
+        }
+
+        .header__content {
+            position: relative; overflow: hidden;
+
+            .fa-pattern {
+                position: absolute; right: 0; width: 66vw; height: 66vw; top: 0; transform: translateX(30%);
+                opacity: 0.05; color: #63656a;
+            }
+        }
+
+        .header__content { width: 54vw; }
+
+        .content__text { max-width: 650px; padding: 0 60px 0 0; position: relative; z-index: 3; }
+
+        .content__bg {
+            padding: 0 80px 0 120px;
+        }
+        
+        .header__img {
+            position: absolute; top: 60px; left: 0; width: 50vw; padding: 0; z-index: 5;
+        }
+    }
+
+    .fa-pattern {
+        position: absolute; right: 0; width: 66vw; height: 66vw; top: 0; transform: translateX(20%);
+        opacity: 0.15; color: #fff;
+    }
+
+    .page__scroll {
+        position: absolute; right: 0; bottom: 0; z-index: 33; cursor: pointer; padding: 0; 
+        @include transition;
+
+        svg { margin: 0 0 15px 0; }
+
+        span { 
+            display: block; writing-mode: vertical-rl;  transform: rotate(-180deg);
+            font-size: 12px; letter-spacing: 0.075em; @include uppercase;
+            color: $gray-6;
+        }
+
+        &:hover {
+            bottom: -10px;
+        }
+    }
+
+    .header__inner {
+
+        p {
+            margin: 0 0 10px 0;
+
+            &:last-child { margin: 0; }
+        }
+
+        h1 { margin: 0 0 25px 0; }
+
+        a {
+
+            &:hover {
+                color: $secondary;
+
+                &.button__back { color: $secondary; }
+            }
+        }
+    }
+}
+
+
+/**********************************************************************/
+/* 1024 */
+/**********************************************************************/
+
+@media ( max-width: $screen-desktop ) {
+
+    .page__header {
+
+        &.type--image {
+            padding: 35px 0 0 0;
+
+            body.single & {
+
+                .header__inner .header__wrapper { align-items: center; }
+            }
+        }
+    }
+}
+
+/**********************************************************************/
+/* 768 */
+/**********************************************************************/
+
+@media ( max-width: $screen-tablet ) {
+
+    .page__header {
+    
+        &.type--image {
+            margin: 0 0 35px 0;
+
+            .header__inner { padding: 0 15px; }
+        }
+    }
+}
+
+/**********************************************************************/
+/* 599 */
+/**********************************************************************/
+
+@media ( max-width: $screen-phone ) {
+
+    .page__header {
+        padding: 30px 0;
+
+        body.single & {
+
+            &.type--color { margin: 0 0 25px 0; }
+        }
+
+        .header__inner {
+
+            .post__metas {
+                display: block;
+
+                .meta__cats { padding: 5px 0 0 0; }
+            }
+
+            h5 { margin: 0 0 5px 0; }
+        }
+
+        &.type--image {
+            padding: 20px 0 0 0;
+
+            .header__content {
+                margin-bottom: 15px;
+
+                h1 { margin: 0 0 15px 0; }
+            }
+
+            .header__img { margin: 0 0 20px 0; }
+
+            body.single & { margin: 0; }
+        }
+
+        h5 { margin: 0 0 5px 0; }
+    }
+}

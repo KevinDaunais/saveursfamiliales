@@ -1,0 +1,282 @@
+{
+    "key": "group_5e78d7c6c063f",
+    "title": "Élément - Grille",
+    "fields": [
+        {
+            "key": "field_5e78d7c6c3c1a",
+            "label": "Introduction",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5e78d7c6c3ff9",
+            "label": "Intro",
+            "name": "grid_block_intro",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5e78d7c6c4406",
+            "label": "Contenu",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5e78d7c6daad1",
+            "label": "Choix de récupération de l'article",
+            "name": "grid_block_type",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d41b40f5bd70",
+                        "operator": "==",
+                        "value": "auto"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "manual": "Manuel ( Choisir les articles parmis une liste )",
+                "automatic": "Automatique ( Choisir un nombre d'article les plus récents, d'une catégorie sélectionnée )"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5e78d7c6dc15e",
+            "label": "Nombre d'article",
+            "name": "grid_block_count",
+            "type": "number",
+            "instructions": "<br>\r\nPar défaut, le nombre -1 signifie que le bloc affichera toutes les résultats.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": -1,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": -1,
+            "max": "",
+            "step": 1
+        },
+        {
+            "key": "field_5e78d7c6dd870",
+            "label": "Choix du type d'article à récupérer automatiquement",
+            "name": "grid_block_post_type",
+            "type": "select",
+            "instructions": "Si le champ est vide, les dernières nouvelles seront affichés.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "post": "Articles",
+                "job": "Emplois",
+                "team": "Équipe"
+            },
+            "default_value": false,
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5e78d7c6def48",
+            "label": "Choix de(s) article(s) récupéré(s) automatiquement",
+            "name": "grid_block_tax",
+            "type": "taxonomy",
+            "instructions": "Si le champ est vide, les dernières nouvelles seront affichés.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e78d7c6dd870",
+                        "operator": "==",
+                        "value": "post"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "select",
+            "allow_null": 1,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_5e78d7c6e0666",
+            "label": "Choix de(s) membres(s) récupéré(s) automatiquement",
+            "name": "grid_block_tax",
+            "type": "taxonomy",
+            "instructions": "Si le champ est vide, les dernières nouvelles seront affichés.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e78d7c6dd870",
+                        "operator": "==",
+                        "value": "team"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "team_dep",
+            "field_type": "select",
+            "allow_null": 1,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_5e78d7c6e1cfb",
+            "label": "Choix de(s) emploi(s) récupéré(s) automatiquement",
+            "name": "grid_block_tax",
+            "type": "taxonomy",
+            "instructions": "Si le champ est vide, les dernières nouvelles seront affichés.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e78d7c6dd870",
+                        "operator": "==",
+                        "value": "job"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "select",
+            "allow_null": 1,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_5e78d7c6e494d",
+            "label": "Choix de(s) article(s) récupéré(s) manuellement",
+            "name": "grid_block_select",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e78d7c6daad1",
+                        "operator": "==",
+                        "value": "manual"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": 1,
+            "max": "",
+            "return_format": "object"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "featured_image"
+    ],
+    "active": false,
+    "description": "Élément flex",
+    "modified": 1605621092
+}

@@ -1,0 +1,103 @@
+
+
+.theme__switcher {
+    position: fixed; bottom: 15px; right: 15px;
+    border-radius: 10px; 
+    box-shadow: 0 0 0 2px var(--color-contrast-low);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 9999;
+
+    .label {
+        @include uppercase; letter-spacing: 0.05em; font-size: 12px;
+    }
+
+    em {
+        margin-left: 10px;
+    }
+
+    .switcher--mobile & {
+        position: relative; bottom: inherit; right: inherit; margin: 15px;
+        width: 66px;
+    }
+}
+.theme-switch {
+    display: inline-block;
+    height: 28px;
+    position: relative;
+    width: 66px;
+}
+  
+.theme-switch input {
+    display:none;
+}
+  
+.theme__slider {
+    background-color: var(--bg-content-contrast); 
+    padding: 2px;
+    cursor: pointer;
+    height: 100%;
+    position: relative;
+    transition: .4s;
+    display: flex;
+    border-radius: 10px;
+
+    .theme__element {
+        width: 50%; display: flex; align-items: center; justify-content: center;
+    }
+
+    svg {
+        width: 16px; height: 16px; position: relative; z-index: 2;
+    }
+}
+
+.bg__toggle {
+    position: absolute;
+    z-index: 1;
+    top: 2px;
+    width:50%;
+    bottom: 2px;
+    left: 0;
+    transform: translateX(2px);
+    @include transition;
+    border-radius: 10px;
+    background-color: #313135;
+
+}
+
+.element--light {
+
+    svg {
+        fill: var(--bg-color); 
+    }
+}
+
+input:checked + .theme__slider {
+
+    .bg__toggle {
+        transform: translateX(calc(100% - 2px));
+    }
+}
+
+.switcher--mobile {
+    
+    .label {
+        margin: 0 0 5px 0; padding: 15px 0 0 15px; margin: 15px 0 0 0;
+        border-top: 1px solid $gray-4; display: block;
+    }
+}
+
+
+[data-theme="dark"] .par__flex.with--bgcolor {
+    color: var(--text-color) !important; background-color: var(--bg-color) !important; 
+}
+
+/**********************************************************************/
+/* 1024px */
+/**********************************************************************/
+
+@media ( max-width: $screen-desktop ) {
+
+    .switcher--desktop {
+        display: none;
+    }
+}

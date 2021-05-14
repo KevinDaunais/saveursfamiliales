@@ -1,0 +1,101 @@
+// main: ../../theme.scss
+
+.cta_block {
+	@include full-width; margin-bottom: 125px; position: relative; padding: 135px 0 155px;
+
+	.tool__bg { 
+		position: absolute; opacity: 0.2; min-height: inherit; padding: 0;
+		display: flex; flex-wrap: wrap; align-items: center; background-blend-mode: multiply;
+		top: 0; bottom: 0; left: 0; right: 0;
+
+		&:after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto; }
+	}
+
+	.block__ctas { @include container; position: relative; display: flex; width: 100%; z-index: 55; margin: auto; }
+
+	.block__cta {
+		margin: 0 30px 0 0; width: 100%;
+
+		p { @include font-size(14px,18px); letter-spacing: 0.025em; line-height: 1.67; }
+
+		&:last-child { margin: 0; }
+	}
+
+	&.cta--multiple {
+
+		.block__cta {
+
+			p { @include font-size(12px,14px); line-height: 1.57; }
+		}
+	}
+
+	&.cols--2 {
+
+		.block__cta { width: 50%; }
+	}
+
+	&.cols--3 {
+
+		.block__cta { width: 33.33%; }
+	}
+}
+
+/**********************************************************************/
+/* 1230px */
+/**********************************************************************/
+
+@media ( max-width: 1230px ) {
+
+	.cta_block { margin: 0 -15px 150px; }
+}
+
+/**********************************************************************/
+/* 768px */
+/**********************************************************************/
+
+@media ( max-width: $screen-tablet ) {
+
+	.cta_block {
+		padding: 40px 5px 55px 5px; margin: 0 -15px 75px;
+
+		.block__ctas { position: relative; transform: inherit; }
+
+		&.cta--multiple {
+			
+			&.cols--3 {
+
+				.block__ctas { flex-wrap: wrap; justify-content: space-around; }
+
+				.block__cta {
+					width: 45%; margin: 0 0 30px 0;
+
+					&:last-child { margin: 0; }
+				}
+			}
+		}
+	}
+}
+
+/**********************************************************************/
+/* 599px */
+/**********************************************************************/
+
+@media ( max-width: $screen-phone ) {
+
+	.cta_block {
+
+		&.cta--multiple {
+			
+			&.cols--2, &.cols--3 {
+				
+				.block__ctas { flex-wrap: wrap; }
+
+				.block__cta {
+					width: 100%; margin: 0 0 45px 0;
+
+					&:last-child { margin: 0; }
+				}
+			}
+		}
+	}
+}

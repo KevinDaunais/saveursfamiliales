@@ -1,0 +1,18 @@
+// main: ../../theme.scss
+
+.pagination {
+    position: relative; margin: 40px 0;
+
+	ul {
+		display: flex; width: 100%; padding: 10px 15px; margin: 0 auto 30px auto; text-align: center;
+		justify-content: center; line-height: 1;
+
+		li { list-style-type: none; line-height: 1; }
+
+		.dots { position: relative; }
+
+		a,span { color: $primary; background: none; float: none; padding: 10px 15px; }
+
+		.current, a:hover { background: $primary; border-color: $primary; color: #fff; }
+	}
+}

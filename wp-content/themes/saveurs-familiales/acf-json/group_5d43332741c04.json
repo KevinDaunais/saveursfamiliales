@@ -1,0 +1,280 @@
+{
+    "key": "group_5d43332741c04",
+    "title": "Élément - Boutons",
+    "fields": [
+        {
+            "key": "field_5c7d3e8628869",
+            "label": "Ajouter un\/des bouton(s)?",
+            "name": "button_block_toggle",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5e70f391966e1",
+            "label": "Disposition",
+            "name": "button_block_layout",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c7d3e8628869",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_5e70d7681469e"
+            ],
+            "display": "group",
+            "layout": "table",
+            "prefix_label": 0,
+            "prefix_name": 0,
+            "sub_fields": [
+                {
+                    "ID": 0,
+                    "key": "field_5c42150af5e4f",
+                    "label": "Alignement verticale",
+                    "name": "block_pos",
+                    "prefix": "acf",
+                    "type": "button_group",
+                    "value": null,
+                    "menu_order": 0,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": "group_5e70d7681469e",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "y--starts": "<svg class='fa v-align-top'><use xlink:href='#v-align-top'><\/use><\/svg>",
+                        "y--center": "<svg class='fa v-align-center'><use xlink:href='#v-align-center'><\/use><\/svg>",
+                        "y--end": "<svg class='fa v-align-bottom'><use xlink:href='#v-align-bottom'><\/use><\/svg>"
+                    },
+                    "allow_null": 0,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "_name": "block_pos",
+                    "_valid": 1,
+                    "_clone": "field_5e70f391966e1",
+                    "__key": "field_5c42150af5e4f",
+                    "__name": "block_pos",
+                    "__label": "Alignement verticale"
+                },
+                {
+                    "ID": 0,
+                    "key": "field_5c7d3c0f46293",
+                    "label": "Alignement horizontale",
+                    "name": "block_col_pos",
+                    "prefix": "acf",
+                    "type": "button_group",
+                    "value": null,
+                    "menu_order": 1,
+                    "instructions": "",
+                    "required": 0,
+                    "id": "",
+                    "class": "",
+                    "conditional_logic": 0,
+                    "parent": "group_5e70d7681469e",
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "x--start": "<svg class='fa x-align-left'><use xlink:href='#x-align-left'><\/use><\/svg>",
+                        "x--center": "<svg class='fa x-align-center'><use xlink:href='#x-align-center'><\/use><\/svg>",
+                        "x--end": "<svg class='fa x-align-right'><use xlink:href='#x-align-right'><\/use><\/svg>"
+                    },
+                    "allow_null": 0,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "_name": "block_col_pos",
+                    "_valid": 1,
+                    "_clone": "field_5e70f391966e1",
+                    "__key": "field_5c7d3c0f46293",
+                    "__name": "block_col_pos",
+                    "__label": "Alignement horizontale"
+                }
+            ]
+        },
+        {
+            "key": "field_5e70f0ffcf53b",
+            "label": "Boutons",
+            "name": "buttons",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c7d3e8628869",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Ajouter un bouton",
+            "sub_fields": [
+                {
+                    "key": "field_5e8ca8bad3c52",
+                    "label": "Style du bouton",
+                    "name": "button_block_style",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Hyperlien",
+                    "ui_off_text": "Bouton"
+                },
+                {
+                    "key": "field_5e6fcb20bdcee",
+                    "label": "Emplacement de l'icône",
+                    "name": "button_block_icon_pos",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5c7d3e8628869",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "right": "Droite",
+                        "left": "Gauche"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5e6fca42b1941",
+                    "label": "Icône",
+                    "name": "button_block_icon",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5c7d3e8628869",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "Aucun",
+                        "arrow-left": "Flèche gauche",
+                        "arrow-right": "Flèche droite",
+                        "pdf": "PDF",
+                        "external": "Lien sortant",
+                        "envelope-o": "Courriel",
+                        "phone": "Téléphone"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5d4333cb765d9",
+                    "label": "Object du bouton",
+                    "name": "button_block_link_object",
+                    "type": "link",
+                    "instructions": "<br>",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "Élément flex",
+    "modified": 1607356329
+}
