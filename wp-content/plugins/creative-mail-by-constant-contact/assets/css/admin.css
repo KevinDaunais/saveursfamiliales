@@ -108,6 +108,14 @@
     text-transform: none;
     background-color: #e0e0e0;
 }
+.ce4wp-button-contained-orange {
+    color: #784100;
+    border: 1px solid #FFB800;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #FFB800;
+}
+
 .ce4wp-button-contained-primary {
     color: #ffffff;
     border: 1px solid #7A4CA8;
@@ -115,6 +123,7 @@
     font-weight: 700;
     background-color: #7A4CA8;
 }
+
 .ce4wp-button-contained-primary:hover {
     box-shadow: none;
     background-color: #663399;
@@ -498,6 +507,13 @@
     font-weight: 400;
     line-height: 24px;
     color: rgba(0, 0, 0, 0.6);
+}
+
+.ce4wp-typography-h6-darker {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.9);
 }
 
 @media (max-width: 460px) {
@@ -1147,6 +1163,84 @@ p.ce4wp-subtitle {
     animation-name: ce4wp-loader-rotate;
     margin: 0 auto;
 }
+
+.ce4wp-notice {
+    border-left: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    height: 175px;
+    position: relative;
+    margin-right: var(--large-gap);
+    margin-bottom: 20px;
+    max-width: 100%;
+}
+
+.ce4wp-notice-primary {
+    background-color: #7A5CBD;
+    background-image: url(../images/woocommerce-banners/bg-blob.png);
+}
+
+.ce4wp-notice-primary #close::before {
+    color:white !important;
+}
+
+.ce4wp-notice-secondary {
+    background-color: #B5E5E7;
+    background-image: url(../images/woocommerce-banners/bg-blob.png);
+    padding: 0 0 0 50px;
+}
+
+.ce4wp-notice-secondary section h1 {
+    color: black !important;
+}
+
+.ce4wp-notice-secondary section p {
+    color: black !important;
+}
+
+.ce4wp-notice img {
+    max-height: 150px;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+.ce4wp-notice section {
+    margin-left: 40px;
+    margin-top: 2px;
+}
+
+.ce4wp-notice section h1 {
+    color:white;
+    margin-top: 1em;
+}
+.ce4wp-notice section p {
+    color:white;
+    font-size: 17px;
+    line-height: 1;
+}
+
+.ce4wp-notice section button {
+    color:black !important;
+    background: white !important;
+    border-color: white !important;
+}
+
+.ce4wp-notice #close {
+    width: 16px;
+    height: 16px;
+    margin-left: 0.3em;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.ce4wp-notice #close::before {
+    color: #6f6f6f;
+    font: 400 21px/1 dashicons;
+    content: '\f158';
+}
+
 
 .ce4wp-hidden {
     display: none;

@@ -917,3 +917,8 @@
 	Enhancement: Overwrite Restrict Content Pro's detected IP address with the IP detected by iThemes Security.
 	Bug Fix: Passwords Requirements compatibility with Restrict Content Pro.
 	Bug Fix: PHP warnings that may occur when initializing default user groups on a new installation.
+6.0.1 - 2020-11-05 - Timothy Jacobs
+	Bug Fix: Improved compatibility with WP Engine.
+6.0.2 - 2020-12-16 - Timothy Jacobs
+	Tweak: Remove non-SSL fallbacks for Security Check Pro.
+	Bug Fix: Tweak checkbox styles.

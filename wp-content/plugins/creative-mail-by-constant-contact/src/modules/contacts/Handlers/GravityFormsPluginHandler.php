@@ -51,7 +51,7 @@ class GravityFormsPluginHandler extends BaseContactFormPluginHandler
             $contactModel->setPhone($user->phone);
         }
         if (!empty($user->birthday)) {
-            $contactModel->set_birthday($user->birthday);
+            $contactModel->setBirthday($user->birthday);
         }
 
         return $contactModel;
@@ -117,7 +117,7 @@ class GravityFormsPluginHandler extends BaseContactFormPluginHandler
     private function FindFormData($contact, $entry, $form)
     {
         foreach ($form['fields'] as $field) {
-            if (strtolower($field["type"]) === 'phone' && in_array(strtolower($field["label"]), $this->phoneFields)) {
+            if (strtolower($field["type"]) === 'phone') {
                 $contact->phone = rgar($entry, $field["id"]);
             } elseif (strtolower($field["type"]) === 'date' && in_array(strtolower($field["label"]), $this->birthdayFields)) {
                 $contact->birthday = rgar($entry, $field["id"]);

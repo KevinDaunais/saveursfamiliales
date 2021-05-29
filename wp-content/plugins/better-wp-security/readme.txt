@@ -2,8 +2,8 @@
 Contributors: ithemes, chrisjean, mattdanner, timothyblynjacobs
 Tags: security plugin, malware scanner, login security, malware prevention, hack prevention, brute force protection, anti-virus, secure, password protection, ban, bad bots, audit log
 Requires at least: 5.4
-Tested up to: 5.5
-Stable tag: 7.9.0
+Tested up to: 5.7
+Stable tag: 7.9.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -188,6 +188,15 @@ Free support may be available with the help of the community in the <a href="htt
 5. Free malware scan powered by Sucuri SiteCheck.
 
 == Changelog ==
+
+= 7.9.1 =
+* Security: Fix Hide Backend Bypass, thanks to Julio Potier for reporting the issue.
+* Tweak: Add filters to short-circuit lock APIs.
+* Tweak: Remove non-SSL fallbacks for Security Check Pro and Version Management.
+* Bug Fix: Tweak checkbox styles.
+* Bug Fix: Improved compatibility with WP Engine.
+* Bug Fix: Pass the `WP_Error` object to the `wp_login_failed` hook.
+* Bug Fix: Prevent wp_no_robots deprecation warning on WordPress 5.7.
 
 = 7.9.0 =
 * Important: iThemes Security requires WordPress 5.4 or later.
@@ -622,5 +631,5 @@ Free support may be available with the help of the community in the <a href="htt
 
 == Upgrade Notice ==
 
-= 7.9.0 =
-Version 7.9.0 contains new features and bug fixes. It is recommended for all users.
+= 7.9.1 =
+Version 7.9.1 contains security and bug fixes. It is recommended for all users.

@@ -3,7 +3,7 @@ Contributors: Constant Contact
 Tags: email, marketing, newsletter, subscribe, contact form, constant contact, crm, automations, ecommerce, promotion, offers, retargeting
 Requires at least: 4.6
 Tested up to: 5.7
-Stable tag: 1.3.5
+Stable tag: 1.3.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 5.6
@@ -90,6 +90,10 @@ Creative Mail by Constant Contact [Privacy Notice](https://www.endurance.com/pri
 6. Enhance your brand with logomaker
 
 == Changelog ==
+* 1.3.9 - Include notice when you have enabled a password protection plugin.
+* 1.3.8 - Fixes an issue with WooCommerce recommendations.
+* 1.3.7 - Fixes an issue specific to PHP 7.4
+* 1.3.6 - Improved integrations with WooCommerce to support features like Abandoned Cart emails.
 * 1.3.5 - Addresses two small issues where some relative URLs would not work for WP installs in subdirectories.
 * 1.3.4 - Improved initial contact sync: we can now import all your contacts without any limits!
 * 1.3.3 - Direct access to Creative Mail features from the left side nav in WP Admin.

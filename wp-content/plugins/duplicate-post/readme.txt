@@ -2,14 +2,14 @@
 Contributors: 		yoast, lopo
 Donate link: 		https://yoast.com/wordpress/plugins/duplicate-post/
 Tags: 				duplicate post, copy, clone
-Requires at least: 	5.5
-Tested up to: 		5.6
-Stable tag: 		4.0.1
+Requires at least: 	5.6
+Tested up to: 		5.7
+Stable tag: 		4.1.2
 Requires PHP:		5.6.20
 License: 			GPLv2 or later
 License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 
-Copy posts of any type with a click!
+The go-to tool for cloning posts and pages, including the powerful Rewrite & Republish feature.
 
 == Description ==
 
@@ -58,7 +58,7 @@ If it still doesn't work, maybe there is some kind of conflict with other plugin
 
 From version 3.0 the plugin's translations are managed by the WordPress.org platform and the plugin is shipped without language files, so first of all update translations under Dashboard->Updates.
 
-If Duplicate Post is still in English, or if there are some untraslated strings, you can help traslating to your language [here](https://translate.wordpress.org/projects/wp-plugins/duplicate-post): you only need a WordPress.org account.
+If Duplicate Post is still in English, or if there are some untranslated strings, you can [help translating to your language](https://translate.wordpress.org/projects/wp-plugins/duplicate-post): you only need a WordPress.org account.
 
 == Screenshots ==
 
@@ -150,6 +150,45 @@ Some users have experienced a fatal error when upgrading to v1.1: this may fix i
 New features and customization, WP 3.0 compatibility: you should upgrade if you want to copy Custom Posts with Custom Taxonomies.
 
 == Changelog ==
+
+= 4.1.2 (2021-03-23) =
+
+Enhancements:
+
+* Allows plugins such as ACF to add fields to the "Compare changes" screen for Rewrite & Republish.
+
+Bugfixes:
+
+* Fixes a bug where the "Compare changes" screen for the Rewrite & Republish feature displayed a broken layout in WordPress 5.7.
+* Fixes a bug where a post type enabled by filter couldn't be copied.
+* Fixes a bug where the "Show links in" settings were reset to the default value on version upgrade.
+
+= 4.1.1 (2021-01-27) =
+
+Bugfixes:
+
+* Fixes a bug where editing posts with Elementor could trigger a fatal error.
+
+= 4.1 (2021-01-27) =
+
+Enhancements:
+
+* Improves compatibility between Elementor and the Rewrite and Republish feature.
+
+Bugfixes:
+
+* Fixes a bug where Rewrite & Republish notices would be shown for regular copies.
+* Fixes a bug where the original post of a Rewrite & Republish copy was listed in the Yoast SEO Premium link suggestions.
+
+Other:
+
+* Disables the plugin for WooCommerce products and introduces filter for enabled post types.
+
+= 4.0.2 (2021-01-14) =
+
+Bugfixes:
+
+* Fixes a bug where errors or notices could be triggered when using the plugin with some other plugins or custom code.
 
 = 4.0.1 (2021-01-12) =
 
@@ -351,5 +390,5 @@ Enhancements:
 
 If you find this useful and if you want to contribute, there are two ways:
 
-   1. Submit your bug reports, suggestions and requests for features on GitHub;
+   1. Submit your bug reports, suggestions and requests for features on [GitHub](https://github.com/Yoast/duplicate-post);
    2. If you want to translate it to your language (there are just a few lines of text), you can use the [translation project](https://translate.wordpress.org/projects/wp-plugins/duplicate-post);

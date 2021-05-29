@@ -65,8 +65,9 @@ $checkbox-input-size-sm: 25px; // width + height for small viewports
     }
 }
 
-svg.dashicon.components-checkbox-control__checked {
+.components-checkbox-control__input-container .dashicon.components-checkbox-control__checked {
     fill: #fff;
+    color: #fff;
     cursor: pointer;
     position: absolute;
     left: -4px;
@@ -105,7 +106,9 @@ svg.dashicon.components-checkbox-control__checked {
     }
 }
 
-svg.dashicon.components-checkbox-control__checked.components-checkbox-control__checked--indeterminate {
+.components-checkbox-control__input-container .dashicon.components-checkbox-control__checked.components-checkbox-control__checked--indeterminate {
     width: 16px;
+    font-size: 16px;
+    line-height: 20px;
     left: 0;
 }

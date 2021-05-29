@@ -913,3 +913,11 @@
 	Bug Fix: Warning when saving the Ban Users module outside of the Settings Page without passing the legacy host_list setting.
 	Bug Fix: Passwords Requirements compatibility with Restrict Content Pro.
 	Bug Fix: PHP warnings that may occur when initializing default user groups on a new installation.
+7.9.1 - 2021-04-14 - Timothy Jacobs
+	Security: Fix Hide Backend Bypass, thanks to Julio Potier for reporting the issue.
+	Tweak: Add filters to short-circuit lock APIs.
+	Tweak: Remove non-SSL fallbacks for Security Check Pro and Version Management.
+	Bug Fix: Tweak checkbox styles.
+	Bug Fix: Improved compatibility with WP Engine.
+	Bug Fix: Pass the `WP_Error` object to the `wp_login_failed` hook.
+	Bug Fix: Prevent wp_no_robots deprecation warning on WordPress 5.7.

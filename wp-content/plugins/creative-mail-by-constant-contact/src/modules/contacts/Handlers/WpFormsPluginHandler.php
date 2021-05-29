@@ -63,7 +63,7 @@ class WpFormsPluginHandler extends BaseContactFormPluginHandler
         }
 
         $phoneField = $this->get_form_type_field($formData, 'phone');
-        if (!empty($phoneField) && array_key_exists('value', $phoneField)) {
+        if (!empty($phoneField)) {
             if (!empty($phoneField['value'])) {
                 $contactModel->setPhone($phoneField['value']);
             }
@@ -72,7 +72,7 @@ class WpFormsPluginHandler extends BaseContactFormPluginHandler
         $dateField = $this->get_form_type_field($formData, 'date-time');
         if (!empty($dateField) && array_key_exists('date', $dateField)) {
             if (!empty($dateField['date']) && in_array(strtolower($dateField['name']), $this->birthdayFields)) {
-                $contactModel->set_birthday($dateField['date']);
+                $contactModel->setBirthday($dateField['date']);
             }
         }
 

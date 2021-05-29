@@ -14,15 +14,14 @@ abstract class BaseContactFormPluginHandler
     public abstract function unregisterHooks();
     public abstract function get_contacts($limit = null);
 
-    protected $birthdayFields = array('birthday', 'date-of-birth', 'date_of_birth', 'birth_date', 'birth-date');
-    protected $phoneFields = array('phone', 'phone_number', 'telephone', 'tel', 'tel-number', 'tel_number', 'mobile_number');
+    protected $birthdayFields = array('birthday', 'date-of-birth', 'date_of_birth', 'birth_date', 'birth-date', 'birth date', 'birth day', 'date of birth');
+    protected $phoneFields = array('phone', 'phone_number', 'telephone', 'tel', 'tel-number', 'tel_number', 'mobile_number', 'mobile number', 'phone number');
     protected $emailFields = array('your-email', 'email', 'e-mail', 'emailaddress', 'email_address', 'email address', 'email-address', 'e-mail address');
-
-
+    protected $firstnameFields = array('firstname', 'first_name', 'name', 'your-name', 'first name', 'first-name', 'first');
+    protected $lastnameFields = array('lastname', 'last_name', 'last name', 'last-name', 'last');
 
     public function upsertContact($model)
     {
-
         if (!isset($model)) {
             throw new Exception('No model provided');
         }
@@ -34,7 +33,6 @@ abstract class BaseContactFormPluginHandler
         else {
             $contactModel = $model;
         }
-
         $this->contactSyncService->upsertContact($contactModel);
     }
 

@@ -47,7 +47,7 @@ class JetpackPluginHandler extends BaseContactFormPluginHandler
             $contactModel->setPhone($contact->phone);
         }
         if (!empty($contact->birthday)) {
-            $contactModel->set_birthday($contact->birthday);
+            $contactModel->setBirthday($contact->birthday);
         }
         return $contactModel;
     }
@@ -74,7 +74,7 @@ class JetpackPluginHandler extends BaseContactFormPluginHandler
             $contact->email = $nameAndEmail["email"];
             $contact->name = $nameAndEmail["name"];
 
-            $contact->opt_in = boolval($all_values['email_marketing_consent']);
+            $contact->opt_in = boolval(isset($all_values['email_marketing_consent']) && $all_values['email_marketing_consent']);
 
             if (empty($contact->email)) {
                 return;

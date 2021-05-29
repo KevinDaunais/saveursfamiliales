@@ -9,7 +9,7 @@
  * Plugin URI: https://wordpress.org/plugins/creative-mail-by-constant-contact/
  * Description: Free email marketing designed specifically for WordPress, Jetpack and WooCommerce. Send newsletters, promotions, updates and transactional e-commerce emails. Simple and easy, powered by Constant Contact’s rock solid reliability.
  * Author: Constant Contact
- * Version: 1.3.5
+ * Version: 1.3.9
  * Author URI: https://www.constantcontact.com
  * WC requires at least: 3.0.0
  * WC tested up to: 5.1.0
@@ -26,7 +26,7 @@ function _load_ce4wp_plugin()
     define('CE4WP_PLUGIN_DIR', __DIR__ . '/');
     define('CE4WP_PLUGIN_URL', plugin_dir_url(__FILE__) . '/');
     define('CE4WP_PLUGIN_FILE', __FILE__);
-    define('CE4WP_PLUGIN_VERSION', '1.3.5');
+    define('CE4WP_PLUGIN_VERSION', '1.3.9');
     define('CE4WP_INSTANCE_UUID_KEY', 'ce4wp_instance_uuid');
     define('CE4WP_INSTANCE_HANDSHAKE_TOKEN', 'ce4wp_handshake_token');
     define('CE4WP_INSTANCE_HANDSHAKE_EXPIRATION', 'ce4wp_handshake_expiration');
@@ -43,7 +43,7 @@ function _load_ce4wp_plugin()
     define('CE4WP_APP_GATEWAY_URL', 'https://app-gateway.creativemail.com/');
     define('CE4WP_APP_URL', 'https://app.creativemail.com/');
     define('CE4WP_ENVIRONMENT', 'PRODUCTION');
-    define('CE4WP_BUILD_NUMBER', '1074');
+    define('CE4WP_BUILD_NUMBER', '1163');
     define('CE4WP_RAYGUN_PHP_KEY', 'Z85xL3mkgnW13Ri9DajGUg');
     define('CE4WP_BATCH_SIZE', 500);
     define('CE4WP_WC_API_KEY_ID', 'ce4wp_woocommerce_api_key_id');
@@ -62,13 +62,13 @@ function _load_ce4wp_plugin()
     return true;
 }
 
-function deactivate()
+function ce4wp_deactivate()
 {
     delete_option('ce4wp_activated');
     delete_option('ce4wp_install_date');
 }
 
-function activate()
+function ce4wp_activate()
 {
     add_option('ce4wp_activated', true);
     add_option('ce4wp_install_date', date('Y-m-d G:i:s'), '', 'yes');
@@ -81,5 +81,5 @@ function activate()
 }
 
 add_action('plugins_loaded', '_load_ce4wp_plugin', 10);
-register_activation_hook(__FILE__, 'activate');
-register_deactivation_hook(__FILE__, 'deactivate');
+register_activation_hook(__FILE__, 'ce4wp_activate');
+register_deactivation_hook(__FILE__, 'ce4wp_deactivate');

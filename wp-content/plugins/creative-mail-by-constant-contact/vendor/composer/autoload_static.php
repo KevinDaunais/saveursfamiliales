@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitf4a1df0de7aa58f6561a7b6d4a6b9e9c
+class ComposerStaticInit3bd42710fc65484e098479b31e8e3f23
 {
     public static $prefixLengthsPsr4 = array (
         'F' => 
@@ -101,6 +101,7 @@ class ComposerStaticInitf4a1df0de7aa58f6561a7b6d4a6b9e9c
         'CreativeMail\\Modules\\Contacts\\Handlers\\CalderaPluginHandler' => __DIR__ . '/../..' . '/src/modules/contacts/Handlers/CalderaPluginHandler.php',
         'CreativeMail\\Modules\\Contacts\\Handlers\\ContactFormSevenPluginHandler' => __DIR__ . '/../..' . '/src/modules/contacts/Handlers/ContactFormSevenPluginHandler.php',
         'CreativeMail\\Modules\\Contacts\\Handlers\\ElementorPluginHandler' => __DIR__ . '/../..' . '/src/modules/contacts/Handlers/ElementorPluginHandler.php',
+        'CreativeMail\\Modules\\Contacts\\Handlers\\FormidablePluginHandler' => __DIR__ . '/../..' . '/src/modules/contacts/Handlers/FormidablePluginHandler.php',
         'CreativeMail\\Modules\\Contacts\\Handlers\\GravityFormsPluginHandler' => __DIR__ . '/../..' . '/src/modules/contacts/Handlers/GravityFormsPluginHandler.php',
         'CreativeMail\\Modules\\Contacts\\Handlers\\JetpackPluginHandler' => __DIR__ . '/../..' . '/src/modules/contacts/Handlers/JetpackPluginHandler.php',
         'CreativeMail\\Modules\\Contacts\\Handlers\\NewsLetterContactFormPluginHandler' => __DIR__ . '/../..' . '/src/modules/contacts/Handlers/NewsLetterContactFormPluginHandler.php',
@@ -119,6 +120,7 @@ class ComposerStaticInitf4a1df0de7aa58f6561a7b6d4a6b9e9c
         'CreativeMail\\Modules\\WooCommerce\\Models\\WCInformationModel' => __DIR__ . '/../..' . '/src/modules/woocommerce/models/WCInformationModel.php',
         'CreativeMail\\Modules\\WooCommerce\\Models\\WCProductModel' => __DIR__ . '/../..' . '/src/modules/woocommerce/models/WCProductModel.php',
         'CreativeMail\\Modules\\WooCommerce\\Models\\WCStoreInformation' => __DIR__ . '/../..' . '/src/modules/woocommerce/models/WCStoreInformation.php',
+        'CreativeMail\\Modules\\Woocommerce\\Emails\\AbandonedCartEmail' => __DIR__ . '/../..' . '/src/modules/woocommerce/emails/AbandonedCartEmail.php',
         'CreativeMail\\Modules\\contacts\\Exceptions\\InvalidContactSyncBackgroundRequestException' => __DIR__ . '/../..' . '/src/modules/contacts/Exceptions/InvalidContactSyncBackgroundRequestException.php',
         'CreativeMail\\Modules\\contacts\\Exceptions\\InvalidHandlerContactSyncRequestException' => __DIR__ . '/../..' . '/src/modules/contacts/Exceptions/InvalidHandlerContactSyncRequestException.php',
         'Defuse\\Crypto\\Core' => __DIR__ . '/..' . '/defuse/php-encryption/src/Core.php',
@@ -157,10 +159,10 @@ class ComposerStaticInitf4a1df0de7aa58f6561a7b6d4a6b9e9c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitf4a1df0de7aa58f6561a7b6d4a6b9e9c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitf4a1df0de7aa58f6561a7b6d4a6b9e9c::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitf4a1df0de7aa58f6561a7b6d4a6b9e9c::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitf4a1df0de7aa58f6561a7b6d4a6b9e9c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3bd42710fc65484e098479b31e8e3f23::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3bd42710fc65484e098479b31e8e3f23::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3bd42710fc65484e098479b31e8e3f23::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit3bd42710fc65484e098479b31e8e3f23::$classMap;
 
         }, null, ClassLoader::class);
     }

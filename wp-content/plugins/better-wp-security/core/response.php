@@ -245,7 +245,7 @@ final class ITSEC_Response {
 		}
 
 		$self->force_logout = true;
-		self::redirect( add_query_arg( 'loggedout', 'true', wp_login_url() ) );
+		self::redirect( add_query_arg( 'loggedout', 'true', ITSEC_Lib::get_login_url() ) );
 	}
 
 	public static function redirect( $redirect ) {

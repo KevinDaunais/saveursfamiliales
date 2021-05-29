@@ -264,7 +264,7 @@ class ContactsSyncService
                 strval($contactAddressModel->getCountryCode()), strval($contactAddressModel->getState()));
         }
 
-        array_push($contact_fields, strval($contactModel->getPhone()), strval($contactModel->get_birthday()), strval($contactModel->getCompanyName()), '', // JobTitle
+        array_push($contact_fields, strval($contactModel->getPhone()), strval($contactModel->getBirthday()), strval($contactModel->getCompanyName()), '', // JobTitle
             strval($contactModel->getOptIn()), strval($contactModel->getOptOut()), strval($contactModel->getEventType()));
         return $contact_fields;
     }

@@ -17,6 +17,7 @@ class Integration
     private $slug;
     private $hide_from_suggestions;
     private $url;
+    private $has_multiple_plugins;
 
     /**
      * Integration constructor.
@@ -27,15 +28,17 @@ class Integration
      * @param $integration_handler   string The name of the class that should be instantiated when this integration gets activated.
      * @param $hide_from_suggestions boolean If you want to hide this plugin from the suggestion list, set this to true
      * @param $url                   string The link to the plugin store, default will set it based on the slug
+     * @param $has_multiple_plugins  boolean If true the plugin will search using the basename (some plugins have different directories depending on license)
      */
-    public function __construct($slug, $name, $class, $integration_handler, $hide_from_suggestions, $url = null)
+    public function __construct($slug, $name, $class, $integration_handler, $hide_from_suggestions, $url = null, $has_multiple_plugins = false)
     {
         $this->slug = $slug;
         $this->name = $name;
         $this->class = $class;
         $this->integrationHandler = $integration_handler;
         $this->hide_from_suggestions = $hide_from_suggestions;
-        $this->url = is_null($url) ? "/wordpress/wp-admin/plugin-install.php?tab=plugin-information&plugin=$slug&TB_iframe=true&width=772&height=1144" : $url;
+        $this->url = is_null($url) ? admin_url("plugin-install.php?tab=plugin-information&plugin=$slug&TB_iframe=true&width=772&height=1144") : $url;
+        $this->has_multiple_plugins = $has_multiple_plugins;
     }
 
     /**
@@ -96,5 +99,15 @@ class Integration
     public function get_url()
     {
         return $this->url;
+    }
+
+    /**
+     * Use basename if integration has multiple plugins with different directories
+     *
+     * @return bool
+     */
+    public function use_basename()
+    {
+        return $this->has_multiple_plugins;
     }
 }

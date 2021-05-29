@@ -1,5 +1,5 @@
 <?php exit; ?>{
-    "version": "2.0.1",
+    "version": "2.1.3",
     "cluster.messagebus.debug": false,
     "cluster.messagebus.enabled": false,
     "cluster.messagebus.sns.region": "",
@@ -58,6 +58,7 @@
         "\\bsql_calc_found_rows\\b",
         "\\bfound_rows\\(\\)"
     ],
+    "docroot_fix.enable": false,
     "lazyload.enabled": false,
     "lazyload.process_img": true,
     "lazyload.process_background": true,
@@ -894,5 +895,9 @@
     "extensions.active_dropin": [],
     "plugin.license_key": "",
     "plugin.type": "",
-    "jquerymigrate.disabled": false
+    "jquerymigrate.disabled": false,
+    "pgcache.bad_behavior_path": "",
+    "newrelic": {
+        "monitoring_type": "apm"
+    }
 }

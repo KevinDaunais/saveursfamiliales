@@ -4,9 +4,10 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitbac46342df44ff7c7344b8e79f379de2
+class ComposerStaticInitb771dd36b1819b8209dfac03b31cc9ed
 {
     public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Yoast\\WP\\Duplicate_Post\\Admin\\Options' => __DIR__ . '/../..' . '/src/admin/class-options.php',
         'Yoast\\WP\\Duplicate_Post\\Admin\\Options_Form_Generator' => __DIR__ . '/../..' . '/src/admin/class-options-form-generator.php',
         'Yoast\\WP\\Duplicate_Post\\Admin\\Options_Inputs' => __DIR__ . '/../..' . '/src/admin/class-options-inputs.php',
@@ -29,7 +30,6 @@ class ComposerStaticInitbac46342df44ff7c7344b8e79f379de2
         'Yoast\\WP\\Duplicate_Post\\UI\\Column' => __DIR__ . '/../..' . '/src/ui/class-column.php',
         'Yoast\\WP\\Duplicate_Post\\UI\\Link_Builder' => __DIR__ . '/../..' . '/src/ui/class-link-builder.php',
         'Yoast\\WP\\Duplicate_Post\\UI\\Metabox' => __DIR__ . '/../..' . '/src/ui/class-metabox.php',
-        'Yoast\\WP\\Duplicate_Post\\UI\\Post_List' => __DIR__ . '/../..' . '/src/ui/class-post-list.php',
         'Yoast\\WP\\Duplicate_Post\\UI\\Post_States' => __DIR__ . '/../..' . '/src/ui/class-post-states.php',
         'Yoast\\WP\\Duplicate_Post\\UI\\Row_Actions' => __DIR__ . '/../..' . '/src/ui/class-row-actions.php',
         'Yoast\\WP\\Duplicate_Post\\UI\\User_Interface' => __DIR__ . '/../..' . '/src/ui/class-user-interface.php',
@@ -45,7 +45,7 @@ class ComposerStaticInitbac46342df44ff7c7344b8e79f379de2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInitbac46342df44ff7c7344b8e79f379de2::$classMap;
+            $loader->classMap = ComposerStaticInitb771dd36b1819b8209dfac03b31cc9ed::$classMap;
 
         }, null, ClassLoader::class);
     }

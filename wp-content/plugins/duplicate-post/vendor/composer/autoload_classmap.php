@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Yoast\\WP\\Duplicate_Post\\Admin\\Options' => $baseDir . '/src/admin/class-options.php',
     'Yoast\\WP\\Duplicate_Post\\Admin\\Options_Form_Generator' => $baseDir . '/src/admin/class-options-form-generator.php',
     'Yoast\\WP\\Duplicate_Post\\Admin\\Options_Inputs' => $baseDir . '/src/admin/class-options-inputs.php',
@@ -28,7 +29,6 @@ return array(
     'Yoast\\WP\\Duplicate_Post\\UI\\Column' => $baseDir . '/src/ui/class-column.php',
     'Yoast\\WP\\Duplicate_Post\\UI\\Link_Builder' => $baseDir . '/src/ui/class-link-builder.php',
     'Yoast\\WP\\Duplicate_Post\\UI\\Metabox' => $baseDir . '/src/ui/class-metabox.php',
-    'Yoast\\WP\\Duplicate_Post\\UI\\Post_List' => $baseDir . '/src/ui/class-post-list.php',
     'Yoast\\WP\\Duplicate_Post\\UI\\Post_States' => $baseDir . '/src/ui/class-post-states.php',
     'Yoast\\WP\\Duplicate_Post\\UI\\Row_Actions' => $baseDir . '/src/ui/class-row-actions.php',
     'Yoast\\WP\\Duplicate_Post\\UI\\User_Interface' => $baseDir . '/src/ui/class-user-interface.php',

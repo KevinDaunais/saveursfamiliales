@@ -744,6 +744,12 @@ final class ITSEC_Lib {
 	 */
 	public static function get_lock( $name, $expires_in = 30 ) {
 
+		$pre_check = apply_filters( 'itsec_pre_get_lock', null, $name, $expires_in );
+
+		if ( null !== $pre_check ) {
+			return $pre_check;
+		}
+
 		/** @var \wpdb $wpdb */
 		global $wpdb;
 		$main_options = $wpdb->base_prefix . 'options';
@@ -813,6 +819,11 @@ final class ITSEC_Lib {
 	 * @param string $name The lock name.
 	 */
 	public static function release_lock( $name ) {
+		$pre_check = apply_filters( 'itsec_pre_release_lock', null, $name );
+
+		if ( null !== $pre_check ) {
+			return;
+		}
 
 		$lock = "itsec-lock-{$name}";
 
@@ -2317,5 +2328,73 @@ final class ITSEC_Lib {
 	 */
 	public static function url_safe_b64_encode( $input ) {
 		return str_replace( '=', '', strtr( base64_encode( $input ), '+/', '-_' ) );
+	}
+
+	/**
+	 * Compares the WordPress version with the given version.
+	 *
+	 * @param string $version   The version to compare with.
+	 * @param string $operator  The operator.
+	 * @param bool   $allow_dev Whether to treat dev versions as stable.
+	 *
+	 * @return bool
+	 */
+	public static function wp_version_compare( $version, $operator, $allow_dev = true ) {
+		global $wp_version;
+
+		if ( $allow_dev ) {
+			list( $wp_version ) = explode( '-', $wp_version );
+		}
+
+		return version_compare( $wp_version, $version, $operator );
+	}
+
+	/**
+	 * Checks if the WordPress version is at least the given version.
+	 *
+	 * @param string $version   The version to check WP for.
+	 * @param bool   $allow_dev Whether to treat dev versions as stable.
+	 *
+	 * @return bool
+	 */
+	public static function is_wp_version_at_least( $version, $allow_dev = true ) {
+		return static::wp_version_compare( $version, '>=', $allow_dev );
+	}
+
+	/**
+	 * Gets the WordPress login URL.
+	 *
+	 * @param string $action   A particular login action to use.
+	 * @param string $redirect Where to redirect the user to after login.
+	 * @param string $scheme   The scheme to use. Accepts `login_post` for form submissions.
+	 *
+	 * @return string
+	 */
+	public static function get_login_url( $action = '', $redirect = '', $scheme = 'login' ) {
+		if ( 'login_post' === $scheme || ( $action && 'login' !== $action ) ) {
+			$url = 'wp-login.php';
+
+			if ( $action ) {
+				$url = add_query_arg( 'action', urlencode( $action ), $url );
+			}
+
+			if ( $redirect ) {
+				$url = add_query_arg( 'redirect_to', urlencode( $redirect ), $url );
+			}
+
+			$url = site_url( $url, $scheme );
+		} else {
+			$url = wp_login_url( $redirect );
+
+			if ( $action ) {
+				$url = add_query_arg( 'action', urlencode( $action ), $url );
+			}
+		}
+
+		if ( function_exists( 'is_wpe' ) && is_wpe() ) {
+			$url = add_query_arg( 'wpe-login', 'true', $url );
+		}
+
+		return apply_filters( 'itsec_login_url', $url, $action, $redirect, $scheme );
 	}
 }

@@ -212,11 +212,6 @@ final class ITSEC_Security_Check_Pro_Utility {
 
 		$response = wp_remote_post( self::$api_url, $remote_post_args );
 
-		if ( is_wp_error( $response ) && ( 'connect() timed out!' !== $response->get_error_message() ) ) {
-			$url      = preg_replace( '|^https://|', 'http://', self::$api_url );
-			$response = wp_remote_post( $url, $remote_post_args );
-		}
-
 		if ( is_wp_error( $response ) ) {
 			if ( 'connect() timed out!' === $response->get_error_message() ) {
 				return new WP_Error( 'http_request_failed', __( 'The server was unable to be contacted.', 'better-wp-security' ) );

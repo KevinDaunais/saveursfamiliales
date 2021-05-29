@@ -143,12 +143,12 @@ class ContactModel
         return $this->eventType;
     }
 
-    public function get_birthday()
+    public function getBirthday()
     {
         return $this->birthday;
     }
 
-    public function set_birthday($birthday)
+    public function setBirthday($birthday)
     {
         $this->birthday = $birthday;
     }
@@ -158,6 +158,7 @@ class ContactModel
         $result = array(
             "email" => $this->getEmail(),
             "phone" => $this->getPhone(),
+            "birthday" => $this->getBirthday(),
             "company_name" => $this->getCompanyName(),
             "name" => $this->getName(),
             "first_name" => $this->getFirstName(),

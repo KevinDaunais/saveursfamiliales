@@ -4,9 +4,9 @@
 namespace CreativeMail\Managers;
 
 use CreativeMail\CreativeMail;
+use CreativeMail\Modules\Woocommerce\Emails\AbandonedCartEmail;
 use CreativeMail\Helpers\EnvironmentHelper;
 use CreativeMail\Helpers\OptionsHelper;
-use CreativeMail\Modules\Api\Models\ApiRequestItem;
 use stdClass;
 
 /**
@@ -78,7 +78,16 @@ class EmailManager
                 add_filter('woocommerce_after_order_notes', array($this, 'add_checkout_field'));
                 add_action('woocommerce_checkout_update_order_meta', array($this, 'ce_checkout_order_meta'));
             }
+            // Modify emails emails.
+            add_filter( 'woocommerce_email_classes', array( $this, 'add_emails' ), 20 );
         }
+    }
+
+    public function add_emails( $email_classes ) {
+        // Add fake email
+        $email_classes['AbandonedCartEmail']  = new AbandonedCartEmail( $email_classes );
+
+        return $email_classes;
     }
 
     public function ce_checkout_order_meta( $order_id )
@@ -193,6 +202,8 @@ class EmailManager
 
         if ($this->is_email_managed($email->id) ) {
             echo '<span class="status-creativemail tips" data-tip="' . esc_attr__('Managed by Creative Mail', 'ce4wp') . '">' . esc_html__('Managed by CreativeMail', 'ce4wp') . '</span>';
+        } elseif($email->id === 'cart_abandoned_ce4wp') {
+            echo '<span class="status-disabled tips" data-tip="' . esc_attr__('Disabled', 'woocommerce') . '">-</span>';
         } elseif ($email->is_manual() ) {
             echo '<span class="status-manual tips" data-tip="' . esc_attr__('Manually sent', 'woocommerce') . '">' . esc_html__('Manual', 'woocommerce') . '</span>';
         } elseif ($email->is_enabled() ) {
@@ -663,9 +674,9 @@ class EmailManager
      */
     public function redirect_managed_email_settings_to_creative_mail( $email )
     {
-
-        if ($this->is_email_managed($email->id)) {
-            wp_redirect(admin_url('admin.php?page=creativemail'));
+        if ($this->is_email_managed($email->id) || $email->id === 'cart_abandoned_ce4wp') {
+            $url = CreativeMail::get_instance()->get_admin_manager()->request_single_sign_on_url_internal("1fabdbe2-95ed-4e1e-a2f3-ba0278f5096f");
+            wp_redirect($url);
             exit;
         }
     }

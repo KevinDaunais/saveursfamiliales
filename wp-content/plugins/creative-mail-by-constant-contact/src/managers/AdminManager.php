@@ -35,7 +35,9 @@ class AdminManager
     const ADMIN_AJAX_NONCE = 'ajax-nonce';
     const ADMIN_NONCE = 'nonce';
 
+    const ADMIN_WOOCOMMERCE = 'woocommerce';
     const DOMAIN_CE4WP = 'ce4wp';
+    const ADMIN_CE4WP_DATA_VAR = 'ce4wp_data';
 
     /**
      * AdminManager constructor.
@@ -101,20 +103,13 @@ class AdminManager
         return wp_create_nonce(self::ADMIN_AJAX_NONCE);
     }
 
-    function request_single_sign_on_url()
-    {
-        // Check for nonce security
-        $this->check_nonce();
-
-        $linkReference = array_key_exists('link_reference', $_POST) ? $_POST['link_reference'] : null;
-        $linkParameters = array_key_exists('link_parameters', $_POST) ? $_POST['link_parameters'] : null;
-
+    function request_single_sign_on_url_internal($linkReference = null, $linkParameters = null) {
         $sso = $this->get_sso_link($linkReference, $linkParameters);
 
-        $response        = new stdClass();
-        $response->url   = $sso;
+        if (is_null($sso))
+        {
+            $current_user = wp_get_current_user();
 
-        if (is_null($sso)) {
             $redirectUrl = EnvironmentHelper::get_app_gateway_url('wordpress/v1.0/instances/open?clearSession=true&redirectUrl=');
             $onboardingUrl = EnvironmentHelper::get_app_url() . 'marketing/onboarding/signup?wp_site_name=' . $this->instance_name
                 . '&wp_site_uuid=' . $this->instance_uuid
@@ -122,7 +117,10 @@ class AdminManager
                 . '&wp_callback_url=' . $this->instance_callback_url
                 . '&wp_instance_url=' . $this->instance_url
                 . '&wp_version=' . get_bloginfo('version')
-                . '&plugin_version=' . CE4WP_PLUGIN_VERSION;
+                . '&plugin_version=' . CE4WP_PLUGIN_VERSION
+                . '&first_name=' . urlencode( $current_user->user_firstname )
+                . '&last_name=' . urlencode( $current_user->user_lastname )
+                . '&email=' . urlencode( $current_user->user_email );
             $referred_by = OptionsHelper::get_referred_by();
             if (isset($referred_by)) {
                 $utm_campaign = '';
@@ -133,8 +131,22 @@ class AdminManager
                 }
                 $onboardingUrl .= '&utm_source=wordpress&utm_medium=plugin&utm_campaign=' . $utm_campaign;
             }
-            $response->url = $redirectUrl . rawurlencode($onboardingUrl);
+            return $redirectUrl . rawurlencode($onboardingUrl);
         }
+        return $sso;
+    }
+
+    function request_single_sign_on_url()
+    {
+        // Check for nonce security
+        $this->check_nonce();
+
+        $linkReference = array_key_exists('link_reference', $_POST) ? $_POST['link_reference'] : null;
+        $linkParameters = array_key_exists('link_parameters', $_POST) ? $_POST['link_parameters'] : null;
+
+        $response        = new stdClass();
+        $response->url   = $this->request_single_sign_on_url_internal($linkReference, $linkParameters);
+
         wp_send_json_success($response);
     }
 
@@ -193,7 +205,7 @@ class AdminManager
             return;
         }
         wp_enqueue_script('ce4wp_deactivate_survey', CE4WP_PLUGIN_URL.'assets/js/deactivation.js', null,null,true);
-        wp_localize_script('ce4wp_deactivate_survey', 'ce4wp_data', array(
+        wp_localize_script('ce4wp_deactivate_survey', self::ADMIN_CE4WP_DATA_VAR, array(
             'url' => admin_url('admin-ajax.php'),
             'nonce' => $this->create_nonce()
         ));
@@ -270,7 +282,7 @@ class AdminManager
 
             /* translators: text. */
             printf(
-                __('Awesome, you\'ve been using <a href="admin.php?page=creativemail">Creative Mail</a> for more than 1 week. May we ask you to give it a 5-star rating on WordPress? | <a href="%2$s" target="_blank">Ok, you deserved it</a> | <a href="%1$s">I already did</a> | <a href="%1$s">No, not good enough</a>', 'ce4wp'), '?ce4wp-ignore-notice=0',
+                __('Awesome, you\'ve been using <a href="admin.php?page=creativemail">Creative Mail</a> for more than 1 week. May we ask you to give it a 5-star rating on WordPress? | <a href="%2$s" target="_blank">Ok, you deserved it</a> | <a href="%1$s">I already did</a> | <a href="%1$s">No, not good enough</a>', self::DOMAIN_CE4WP), '?ce4wp-ignore-notice=0',
                 'https://wordpress.org/plugins/creative-mail-by-constant-contact/'
             );
             echo "</p></div>";
@@ -312,7 +324,6 @@ class AdminManager
 
         return $footer_text;
     }
-
 
     function is_cm_screen_and_show_footer() {
         $screen = get_current_screen();
@@ -436,23 +447,29 @@ class AdminManager
 
         //add woocommerce sub menu page
         add_submenu_page(
-            'woocommerce',
+            self::ADMIN_WOOCOMMERCE,
             esc_html__('Creative Mail', self::DOMAIN_CE4WP),
             esc_html__('Creative Mail', self::DOMAIN_CE4WP),
             'manage_woocommerce',
             'ce4wp-woo-settings',
-            [ $this, 'show_settings_page' ]
+            $main_action
         );
     }
 
     public function add_admin_notice_permalink()
     {
-        if (CreativeMail::get_instance()->get_integration_manager()->is_plugin_active('woocommerce')) {
+        if (CreativeMail::get_instance()->get_integration_manager()->is_plugin_active(self::ADMIN_WOOCOMMERCE)) {
             if (! CreativeMail::get_instance()->get_integration_manager()->get_permalinks_enabled() ) {
-                print( '<div class="notice notice-error is-dismissible"><p>Ohoh, pretty permalinks are disabled. To enable the CreativeMail WooCommerce integration <a href="/wp-admin/options-permalink.php">please update your permalink settings</a>.</p></div>');
+                print( '<div class="notice notice-error is-dismissible"><p>'. esc_html__('Ohoh, pretty permalinks are disabled. To enable the CreativeMail WooCommerce integration', self::DOMAIN_CE4WP) .' <a href="/wp-admin/options-permalink.php">'. esc_html__('please update your permalink settings', self::DOMAIN_CE4WP) .'</a>.</p></div>');
                 return;
             }
         }
+    }
+
+    public function add_admin_notice_password_protected()
+    {
+        print( '<div class="notice notice-error is-dismissible"><p>'. esc_html__('We see that you have the Password Protected plugin installed and activated on your WordPress site. While this plugin is active, CreativeMail wont be able to complete the setup since the Password Protected plugin is prohibiting us from interacting with your WordPress site.', self::DOMAIN_CE4WP) .' '. esc_html__('Please disable this plugin to start using CreativeMail.', self::DOMAIN_CE4WP) .'</p></div>');
+        return;
     }
 
     public function add_admin_get_started_banner()
@@ -482,7 +499,7 @@ class AdminManager
     {
         $widget_title = wp_kses(
         /* translators: Placeholder is a CreativeMail logo. */
-            __( 'Email Marketing <span class="floater">By<div class="ce4wp_dashboard_icon"></div></span>', 'ce4wp'),
+            __( 'Email Marketing <span class="floater">By<div class="ce4wp_dashboard_icon"></div></span>', self::DOMAIN_CE4WP),
             array( 'span' => array( 'class' => array() ), 'div' => array( 'class' => array() ) )
         );
 
@@ -520,7 +537,7 @@ class AdminManager
 
     private function enqueue_dashboard_js() {
         wp_enqueue_script('ce4wp_dashboard', CE4WP_PLUGIN_URL.'assets/js/dashboard.js', 'jquery',CE4WP_PLUGIN_VERSION);
-        wp_localize_script('ce4wp_dashboard', 'ce4wp_data', array(
+        wp_localize_script('ce4wp_dashboard', self::ADMIN_CE4WP_DATA_VAR, array(
             'url' => admin_url('admin-ajax.php'),
             'nonce' => $this->create_nonce()
         ));

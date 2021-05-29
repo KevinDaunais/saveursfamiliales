@@ -21,13 +21,12 @@ class BlueHostBuilderPluginHandler extends BaseContactFormPluginHandler
         $contactModel->setEmail($email);
         $contactModel->setEventType(CE4WP_WB4WP_EVENTTYPE);
 
-        if ($contact->opt_in && !$contact->opt_out) {
-
-            $contactModel->setOptIn($contact->opt_in);
+        if (!empty($contact->opt_in) && (!$contact->opt_out || $contact->opt_out < $contact->opt_in)) {
+            $contactModel->setOptIn(true);
             $contactModel->setOptActionBy(OptActionBy::Owner);
         }
 
-        if ($contact->opt_out) {
+        if (!empty($contact->opt_out) && (!$contact->opt_in || $contact->opt_out > $contact->opt_in)) {
             $contactModel->setOptOut($contact->opt_out);
             $contactModel->setOptActionBy(OptActionBy::User);
         }
@@ -42,7 +41,7 @@ class BlueHostBuilderPluginHandler extends BaseContactFormPluginHandler
             $contactModel->setPhone($contact->phone);
         }
         if (!empty($contact->birthday)) {
-            $contactModel->set_birthday($contact->birthday);
+            $contactModel->setBirthday($contact->birthday);
         }
 
         return $contactModel;
@@ -78,7 +77,7 @@ class BlueHostBuilderPluginHandler extends BaseContactFormPluginHandler
             $limit = null;
         }
 
-        if (in_array('wb4wp-wordpress-plugin-bluehost/wb4wp-plugin.php', apply_filters('active_plugins', get_option('active_plugins'))) && defined('CFCORE_VER')) {
+        if (in_array('wb4wp-plugin.php', array_map('basename', apply_filters('active_plugins', get_option('active_plugins'))))) {
             global $wpdb;
 
             $contactsArray = array();
