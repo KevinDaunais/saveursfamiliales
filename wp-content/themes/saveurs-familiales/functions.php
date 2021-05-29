@@ -22,10 +22,16 @@ class ParentTheme
 
 		Template::add_action( 'atmk/enqueue_scripts', 'enqueue_scripts' );
         Template::add_action( 'atmk/enqueue_styles', 'enqueue_styles' );
+        Template::add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
+
+        Template::add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
+        Template::add_filter( 'woocommerce_enqueue_styles', '__return_false' );
         
         Template::add_action('acf/init', 'init_par_flexs');
         Template::add_filter( 'block_categories', 'block_categories', 10, 2 );
 	}
+
+    
 
 	public static function enqueue_scripts(){
 		//wp_dequeue_style('wp-block-library');
@@ -39,6 +45,22 @@ class ParentTheme
 			return array_merge( $_deps, $deps );
 		});
 	}
+
+    public static function woocommerce_header_add_to_cart_fragment( $fragments ) {
+        global $woocommerce;
+    
+        ob_start();
+    
+        ?>
+        <a class="cart-customlocation" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>"><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?> – <?php echo $woocommerce->cart->get_cart_total(); ?></a>
+        <?php
+        $fragments['a.cart-customlocation'] = ob_get_clean();
+        return $fragments;
+    }
+
+    public static function mytheme_add_woocommerce_support() {
+        add_theme_support( 'woocommerce' );
+    }
     
     
 
