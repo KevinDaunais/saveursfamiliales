@@ -56,6 +56,23 @@
                 
         }
     }
+    @if $style == 'big' {
+        color: #fff; position: relative; @include mont('medium'); @include font-size(16px,20px);
+
+        &:after {
+            content: ""; width: 20px; height: 4px; background-color: #fff;
+            @include transition; position: absolute; bottom: -7px; left: 0; z-index: 5;
+        }
+
+
+        &:hover {
+            color: $primary;
+            &:after {
+                width: 100%; background-color: $primary;
+            }
+                
+        }
+    }
     
 
 }

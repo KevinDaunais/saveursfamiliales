@@ -1,56 +1,48 @@
 <?php
-use ATMK\Template;
-use ATMK\Media;
-use ATMK\Files;
 
-include locate_template( 'parts/page/layouts/options.php' );
+    use ATMK\Template;
+    use ATMK\Tools;
+    use ATMK\Media;
 
-$blocks = get_sub_field( $layout . 'blocks' );
+    include locate_template( 'parts/page/layouts/options.php' );
 
+    $filter  = get_sub_field( $layout . 'filter' );
+    $bg = get_sub_field( $layout . 'bg' );
+    $content = get_sub_field( $layout . 'content' );
+    $btn = get_sub_field( $layout . 'btn' );
+    
+    if($filter){
+        $filter = "filter--blue";
+    } else{
+        $filter = "filter--orange";
+    }
 
-$animations = 'animation--true';
-
-if( $block_counts < 3 ){
-
-    $animations = 'animation--false';
-}
-
-$count = 0;
-
-
-
+    $component_data = [
+        'cols'          => $element['row'],
+        'layout'        => $layout,
+        'grid'          => 2,
+        'margin'        => false,
+        'padding'       => false,
+        'col_style'     => false,
+        'block_pos'     => 'y--starts',
+        'block_col_pos' => 'x--starts',
+    ];
 ?>
-<?php if ($blocks): ?>
 
-    <div <?php echo $block_id; ?> class="<?php echo $block_class; ?> <?php echo $animations ?> custom--layouts" <?php echo $block_style; ?> data-custom_margin="<?php echo $block_margin_data; ?>" >
-
-        <div class="cta__wrapper">
-
-            <?php foreach($blocks as $block): $count++; ?>
-                <?php
-                    $element_class = 'without--bg';
-
-                    if( $block['block_bg'] ){
-                        $element_class = 'with--bg';
-                    }
-
-                ?>
-                <div class="block__element <?php echo $element_class; ?> element--<?php echo $block['block_size']; ?>">
-                    <div <?php Media::set_bg($block['block_bg'], 'full', 'cover--el'); ?>></div>
-                    <div class="overlay cover--el" style="background-color:<?php echo $block['block_bgcolor']; ?>"></div>
-                    <div class="in">
-                        <div class="text__wrapper" style="color:<?php echo $block['block_textcolor']; ?>">
-                            <?php echo $block['text'] ?>
-                        </div>
-						
-                        <?php Template::get_component( 'parts/page/components/block-button', $block['buttons'] ); ?>
+<div <?php echo $block_id; ?> class="<?php echo $block_class; ?> custom--layouts" style="<?php echo $col_style; ?> <?php echo $block_padding; ?>" data-custom_padding="<?php echo $block_padding_data; ?>" data-custom_margin="<?php echo $block_margin_data; ?>">
+	<div <?php Media::set_bg( $bg, "full", "cover--el" ); ?>>
+    
+		<div class="in__cta <?php echo $filter ?>">
+            <div class="cta__element">
+                <div class="cta__content">
+                    <?php echo $content ?>
+                    <div class="cta__btn">
+                        <?php echo $title ?>
+                        <?php Template::get_component( 'parts/page/components/block-button', $btn ); ?>
                     </div>
                 </div>
-            <?php endforeach; ?>
 
-        </div>
-
-    </div>
-
-<?php endif; ?>
-
+            </div>
+        </div>	
+	</div>
+</div>

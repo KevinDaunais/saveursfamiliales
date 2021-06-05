@@ -1,7 +1,42 @@
 		</div>
 
+        <?php 
+        use ATMK\Tools;
+        use ATMK\Media;
+    
+    
+        $adress = Tools::get_meta( 'options_address', 'options', TRUE );
+        $mail = Tools::get_meta( 'options_mail', 'options', TRUE );
+        $tel = Tools::get_meta( 'options_tel', 'options', TRUE );
+        
+        ?>
 		<footer class="footer">
+            <div class="in">
+                <h2>Contactez nous</h2>
+                <div class="inner">
 
+                    <div class="info">
+                        <a class="logo" href="<?php echo home_url() ?>/?splash">
+                            <?php echo ATMK\Media::output_img('images/logo.svg'); ?>
+                        </a>
+                        <div class="content--info">
+                            <svg class='fa fa-map-o' ><use xlink:href='#fa-map-o'></use></svg>
+                            <p><?php echo $adress ?></p>
+                        </div>
+                        <div class="content--info">
+                            <svg class='fa fa-phone' ><use xlink:href='#fa-phone'></use></svg>
+                            <a class="tel" href="tel:<?php echo $phone ?>"> <?php echo $tel ?></a>
+                        </div>
+                        <div class="content--info">
+                            <svg class='fa fa-envelope-o' ><use xlink:href='#fa-envelope-o'></use></svg>
+                            <a class="email" href="mailto:<?php echo $email ?>"> <?php echo $mail ?></a>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <?php echo do_shortcode('[wpforms id="198"]') ?>
+                    </div>
+                </div>
+            </div>
 		</footer>
 
 		<div class="copyright">
@@ -16,21 +51,7 @@
 			</div>
         </div>
         
-        <div class="theme__switcher switcher--desktop">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <div class="theme__slider round">
-                    <div class="theme__element element--light">
-                        <svg class='fa fa-sun'><use xlink:href='#fa-sun'></use></svg> 
-                    </div>
-                    <div class="theme__element element--dark">
-                        <svg class='fa fa-moon'><use xlink:href='#fa-moon'></use></svg> 
-                    </div>
-                    <div class="bg__toggle"></div>
-                </div>
-            </label>
-        </div>
-
+        
 	</div>
 	<?php wp_footer(); ?>
 </body>

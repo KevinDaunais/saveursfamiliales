@@ -4,7 +4,42 @@
 /* FOOTER */
 /**********************************************************************/
 .footer {
-    @include container; margin-top: 50px;
+    @include full-width; margin-top: 50px; display: flex; background-color: #14681409;
+    .in{
+        @include container; padding: 100px 0;
+        h2{ padding-bottom: 20px;}
+        
+        .inner{
+            display: flex; justify-content: space-between; 
+            .info{
+                width: 30%; padding-right: 30px; padding-top: 15px;
+    
+                .logo{
+                    width: 80%; padding-bottom: 50px;
+                    svg{
+                        height: 200px;
+                    }
+                }
+    
+                .content--info{
+                    display: flex; padding-bottom: 15px;
+                    p{ padding-left: 20px; margin: 0;}
+                    svg{ fill: $green;}
+                    a{ padding-left: 20px;}
+                }
+            }
+            
+            .form{
+                width: 70%;
+                .wpforms-field-label{
+                    @include mont;
+                }
+            }
+        }
+
+    }
+
+
 }
 
 .copyright {
@@ -25,23 +60,46 @@
 .footer-lock svg { width:13px; height: 13px; vertical-align: middle; margin-right: 2px;  position: relative; top: -1px; }
 
 /**********************************************************************/
+/* 1500 */
+/**********************************************************************/
+
+@media ( max-width: 1500px ) {
+
+    .footer {
+
+        .in{
+            padding: 100px 30px;
+        }
+    }
+    
+}
+
+/**********************************************************************/
 /* 768 */
 /**********************************************************************/
 
 @media ( max-width: $screen-tablet ) {
+    .footer {
+        @include full-width; margin-top: 50px; display: flex; background-color: #14681409;
+        .in{
+            
+            h2{ padding-bottom: 10px;}
+            
+            .inner{
+                justify-content: flex-start;  flex-direction: column;
+                .info{
+                    width: 100%; padding-right: 30px; padding-top: 15px;
+                }
+                .form{
+                    width: 100%; padding-top: 30px;
 
-    .footer { margin-top: 50px; }
-
-    .copyright {
-        
-        .container { display: block; text-align: center; }
+                    
+                }
+            }
+    
+        }
+    
+    
     }
-}
-
-/**********************************************************************/
-/* 599 */
-/**********************************************************************/
-
-@media ( max-width: $screen-phone ) {
-
+    
 }

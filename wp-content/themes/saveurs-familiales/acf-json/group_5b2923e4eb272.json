@@ -147,6 +147,155 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_60bbb21f3d5ca": {
+                    "key": "layout_60bbb21f3d5ca",
+                    "name": "cta_block",
+                    "label": "Bloc CTA",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_60bbb21f3d5cb",
+                            "label": "Contenu",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "left",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_60bbb2443d5d1",
+                            "label": "Dégradé",
+                            "name": "cta_block_filter",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Dégradé Vert",
+                            "ui_off_text": "Dégradé gris"
+                        },
+                        {
+                            "key": "field_60bbb2493d5d3",
+                            "label": "Image de fond",
+                            "name": "cta_block_bg",
+                            "type": "image",
+                            "instructions": "Dimensions : 1920px X 700px",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_60bbb2483d5d2",
+                            "label": "Contenu",
+                            "name": "cta_block_content",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_60bbb21f3d5cc",
+                            "label": "Boutons",
+                            "name": "cta_block_btn",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5d43332741c04"
+                            ],
+                            "display": "group",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_60bbb21f3d5cd",
+                            "label": "Options",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "left",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_60bbb21f3d5d0",
+                            "label": "Options du bloc",
+                            "name": "cta_block_options",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b2924ffbed07",
+                                "group_5e70d2c0a6829",
+                                "group_5e70d7681469e",
+                                "group_5d4332b170ea3"
+                            ],
+                            "display": "group",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_5f7630bc13cbe": {
                     "key": "layout_5f7630bc13cbe",
                     "name": "slider_block",
@@ -1299,5 +1448,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1622909763
+    "modified": 1622914532
 }

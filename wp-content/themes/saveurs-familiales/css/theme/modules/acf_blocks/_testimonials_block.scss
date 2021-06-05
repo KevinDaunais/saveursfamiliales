@@ -8,7 +8,7 @@
 
 	> .in { @include container; position: relative; z-index: 10; }
 
-	.testi__title { display: block; padding-bottom: 10px;}
+	.testi__title { display: block; padding-bottom: 10px; @include bird;}
 
 	.pattern__overlay svg {
 		fill: $green; height: 30vh; width: 20%; position: absolute;
@@ -28,7 +28,7 @@
             .in__text {  flex: 1; }
 
             h5 {
-                margin: 0 0 20px 0; @include mont; letter-spacing: 0;
+                margin: 0 0 20px 0; @include mont; letter-spacing: 0; @include mont;
 
 				span { 
 					display: inline-block; 
@@ -40,6 +40,7 @@
             h5,p, strong {
                 line-height: 1.5
             }
+        
             img{
                 max-width: 300px;
             }
@@ -64,7 +65,7 @@
 
         .in__image { margin: 40px 0; }
 
-        .in__text { padding: 0 40px; max-width: 100%; margin: 0;}
+        .in__text { max-width: 100%; margin: 0;}
 
     }
 }

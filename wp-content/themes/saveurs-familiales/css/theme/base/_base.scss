@@ -21,10 +21,10 @@ a:active 				{ outline: none; }
 :-moz-any-link:focus	{ outline: none; }
 
 h1, .h1	{ @include font-size(22px,40px); }
-h2, .h2	{ @include font-size(17px,19px); @include mont('normal'); color:$gray-4 }
+h2, .h2	{ @include font-size(17px,19px); @include mont('normal'); color:$gray-4; text-transform: uppercase; }
 h3, .h3	{ @include font-size(18px,28px); }
 h4, .h4	{ @include font-size(16px,24px); }
-h5, .h5	{ @include font-size(15px,20px); }
+h5, .h5	{ @include font-size(16px,18px); }
 h6, .h6	{ @include font-size(14px,16px); }
 
 h1,h2,h3,h4,h5,h6 { margin: 0 0 15px 0; line-height: 1.3;}
@@ -193,4 +193,20 @@ h1,h2,h3,h4,h5,h6 { margin: 0 0 15px 0; line-height: 1.3;}
             span { line-height: 1.4; }
         }
     }
+}
+
+/**********************************************************************/
+/* 768px */
+/**********************************************************************/
+
+@media ( max-width: $screen-tablet ) {
+
+    .page__layouts{
+
+        .par__flex.custom--spacing{
+            padding-top: 10px; padding-bottom: 50px;
+
+        }
+    }
+    
 }
