@@ -8,3 +8,19 @@
 	@if $weight == 'bold' { font-weight: 700; }
 }
 
+@mixin bird($weight:normal) {
+    font-family: 'birds_of_paradiseregular';
+    font-style: normal;
+    font-weight: normal;
+
+}
+
+
+
+@font-face {
+    font-family: 'birds_of_paradiseregular';
+    src: url('../fonts/bird/birds_of_paradise__commercial_version-webfont.eot');
+    src: url('../fonts/bird/birds_of_paradise__commercial_version-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/bird/birds_of_paradise__commercial_version-webfont.woff') format('woff'),
+         url('../fonts/bird/birds_of_paradise__commercial_version-webfont.ttf') format('truetype');
+}

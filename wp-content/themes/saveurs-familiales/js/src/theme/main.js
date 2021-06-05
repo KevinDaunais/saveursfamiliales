@@ -35,6 +35,17 @@
 		}
 	});
 
+	$('.testimonials__slider').slick({
+		dots: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: false,
+		autoplay: true,
+		autoplaySpeed: 4000
+
+	});
+
 	$('.search__overlay .close').on({
 		click: function(e) {
 			$('.search__overlay').toggleClass("active");

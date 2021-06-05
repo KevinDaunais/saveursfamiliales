@@ -4,6 +4,19 @@
     position: relative; z-index: 10;
     //background-color: #fff; padding: 0 15px;
 
+    &.left--box{
+       
+        .item--slider .col__slider{
+            box-shadow: -40px 40px 0px -1px $gray-2;
+        }
+    }
+    &.right--box{
+       
+        .item--slider .col__slider{
+            box-shadow: 40px 40px 0px -1px $gray-2;
+        }
+    }
+
     &.no-margin {
         margin-bottom: 0;
 
@@ -57,6 +70,10 @@
         .in {
             max-width: 1290px; margin: 0 auto;
         }
+    }
+
+    .block__button{
+        a{ @include button('bar');}
     }
 }
 

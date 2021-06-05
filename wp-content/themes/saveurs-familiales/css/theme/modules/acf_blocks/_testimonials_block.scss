@@ -1,0 +1,97 @@
+
+.page__layouts .par__flex.custom--spacing.testimonials_block {
+	padding: 30px 0;
+}
+
+.testimonials_block {
+    position: relative; z-index: 1;	@include full-width();
+
+	> .in { @include container; position: relative; z-index: 10; }
+
+	.testi__title { display: block; padding-bottom: 10px;}
+
+	.pattern__overlay svg {
+		fill: $green; height: 30vh; width: 20%; position: absolute;
+		opacity: 0.2; bottom: 0; right: 10%;
+
+	}
+}
+
+.testimonials__slider {
+    position: relative;
+    .slide__element {
+        
+        .in {
+            display: flex; align-items: center; padding: 30px 0; justify-content: center;
+            height: 100%; max-width: 80%;
+
+            .in__text {  flex: 1; }
+
+            h5 {
+                margin: 0 0 20px 0; @include mont; letter-spacing: 0;
+
+				span { 
+					display: inline-block; 
+					&:first-child{ padding-right: 5px; }
+					&:last-child{ padding-left: 5px; }
+				}
+            }
+
+            h5,p, strong {
+                line-height: 1.5
+            }
+            img{
+                max-width: 300px;
+            }
+
+
+        }
+    }
+
+	.slick-dots { 
+		position: relative; margin-top: 20px; left:0;
+	}
+}
+
+/**********************************************************************/
+/* 768 */
+/**********************************************************************/
+
+@media ( max-width: $screen-tablet ) {
+
+    .testimonials__slider .slide__element .in {
+        flex-wrap: wrap;
+
+        .in__image { margin: 40px 0; }
+
+        .in__text { padding: 0 40px; max-width: 100%; margin: 0;}
+
+    }
+}
+
+/**********************************************************************/
+/* 599 */
+/**********************************************************************/
+
+@media ( max-width: $screen-phone ) {
+
+    .testimonials__slider {
+
+        br { display: none; }
+
+       .slide__element .in {
+            min-height: 330px; padding: 0;
+
+            .in__text { padding: 0; }
+
+            .text__testi h2 {
+                margin-bottom: 15px;
+
+            }
+        }
+    }
+
+    .slick-dots { 
+		left: 0;
+	}
+}

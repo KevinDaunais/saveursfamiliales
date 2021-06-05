@@ -27,7 +27,7 @@
             .block__button {
                 margin-top: 20px;
 
-                a { min-width: 200px; @include button('slider') }
+                a { @include button('btn-reg') }
             }
         }
     }
@@ -72,4 +72,7 @@
     &.custom--spacing.par__flex  {
         padding-top: unset; padding-bottom: unset;
     }
+
+    h1{ @include bird; @include font-size(16px, 18px ); letter-spacing: 6.5px; color: $gray-7; margin: 0;}
+    h4{ @include bird; @include font-size(20px, 36px ); letter-spacing: 0.05em; color: $gray-7;}
 }
