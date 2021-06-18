@@ -58,6 +58,12 @@ if ( giftup_options::has_api_key() ) {
 }
 
 function giftup_woocommerce_coupon_error( $err, $err_code, $coupon ) {
+    $debug = giftup_options::get_woocommerce_diagnostics_mode();
+
+    if ( $debug ) {
+        giftup_diagnostics::append( "├ Coupon not found, trying Gift Up" );
+    }
+
     try {
         $gift_card = giftup_api::get_gift_card( $coupon->get_code() );
 

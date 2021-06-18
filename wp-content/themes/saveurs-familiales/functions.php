@@ -8,6 +8,7 @@ if ( ! class_exists( '\\' . __NAMESPACE__ . '\\ParentTheme' ) ) {
 
 class ParentTheme
 {
+    
 
 	public static function version(){
 		return '1.0.0';
@@ -46,7 +47,9 @@ class ParentTheme
 		});
 	}
 
-    public static function woocommerce_header_add_to_cart_fragment( $fragments ) {
+
+
+    function woocommerce_header_add_to_cart_fragment( $fragments ) {
         global $woocommerce;
     
         ob_start();

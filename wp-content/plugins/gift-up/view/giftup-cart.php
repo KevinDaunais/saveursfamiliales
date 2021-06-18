@@ -88,8 +88,8 @@ function giftup_woocommerce_cart_coupon() {
     ?>
     <tr class="cart-subtotal giftup-cart-subtotal">
         <th class="giftup-cart-subtotal-th">
-            <?php if ( giftup_options::get_woocommerce_test_mode() ): ?>
-            [TEST]
+            <?php if ( giftup_options::get_woocommerce_is_in_test_mode() ): ?>
+                [TEST]
             <?php endif; ?>
             <?php echo __( 'Gift card', 'gift-up' ) ?><?php if ( !empty($appliedcode) ): ?>: <span style="text-transform: uppercase" class="giftup-cart-subtotal-th-balance-title"><?php echo $appliedcode ?></span><?php endif; ?>
 
@@ -123,5 +123,16 @@ function giftup_woocommerce_cart_coupon() {
             <?php endif; ?>
         </td>
     </tr>
+    <?php if ( !giftup_options::get_woocommerce_is_in_test_mode() && giftup_options::get_woocommerce_test_mode_cookie_set() ): ?>
+        <tr class="cart-subtotal giftup-cart-subtotal">
+            <td colspan="2">
+                <div class="giftup-cart-subtotal-error" style="color: #990000" role="alert">
+                    Warning: You've requested Gift Up to be in test mode so you can test redeeming test 
+                    gift cards, but you need to be logged in as an administrator to WordPress in this tab.
+                </div>
+            </td>
+        </tr>
+    <?php endif; ?>
+
     <?php
 }

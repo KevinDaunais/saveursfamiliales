@@ -1,7 +1,4 @@
 <?php get_header(); ?>
-<?php
-echo apply_filters('the_content',$wp_query->post->post_content);
-?>
 <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 
 	<section class="content">

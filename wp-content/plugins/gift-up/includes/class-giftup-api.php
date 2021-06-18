@@ -112,7 +112,7 @@ class giftup_api
                 giftup_diagnostics::append( "├ Looking up gift card " . $code . " via API" );
             }
         
-            $response = self::invoke( '/gift-cards/' . urlencode( $code ) );
+            $response = self::invoke( '/gift-cards/' . rawurlencode( $code ) );
         
             if ($response->success) {
                 giftup_cache::$giftcard = $response->body;
@@ -164,11 +164,21 @@ class giftup_api
             return -1;
         }
 
-        $payload = [];
-        $payload['amount'] = round($value, 2, PHP_ROUND_HALF_DOWN);
-        $payload['reason'] = "Redeemed against WooCommerce order id " . $order_id;
+        $rounded_value = $value;
+        try {
+            $rounded_value = round($value, 2, PHP_ROUND_HALF_DOWN);
+        } catch(exception $e) {}
 
-        $response = self::invoke( '/gift-cards/' . urlencode( $code ) . '/redeem', 'POST', $payload );
+        if ($order_id === NULL || strlen($order_id) == 0) {
+            $order_id = "(unknown)";
+        }
+
+        $payload = [ 
+            'amount' => $rounded_value,
+            'reason' => "Redeemed against WooCommerce order id " . $order_id
+        ];
+
+        $response = self::invoke( '/gift-cards/' . rawurlencode( $code ) . '/redeem', 'POST', $payload );
         
         if ( $response->success ) {
             return $response->body['redeemedAmount'];
@@ -195,11 +205,21 @@ class giftup_api
             return false;
         }
 
-        $payload = [];
-        $payload['amount'] = $value;
-        $payload['reason'] = "WooCommerce order cancelled " . $order_id;
+        $rounded_value = $value;
+        try {
+            $rounded_value = round($value, 2, PHP_ROUND_HALF_DOWN);
+        } catch(exception $e) {}
 
-        $response = self::invoke( '/gift-cards/' . urlencode( $code ) . '/add-credit', 'POST', $payload );
+        if ($order_id === NULL || strlen($order_id) == 0) {
+            $order_id = "(unknown)";
+        }
+
+        $payload = [
+            'amount' => $rounded_value,
+            'reason' => "WooCommerce order cancelled " . $order_id
+        ];
+
+        $response = self::invoke( '/gift-cards/' . rawurlencode( $code ) . '/add-credit', 'POST', $payload );
         
         return $response->success;
     }
@@ -290,17 +310,33 @@ class giftup_api
         $json = null;
         
         if ($data !== NULL) {
-            $json = json_encode( $data );
+            $json = json_encode( $data, JSON_FORCE_OBJECT );
+
+            if ($json === NULL) {
+                $json = "{ 'error': 'Could not serialize data into JSON' }";
+            }
         }
 
         if ($api_key === NULL) {
             $api_key = giftup_options::get_api_key();
         }
 
-        $current_plugin_version = GIFTUP_VERSION;
+        $plugin_version = GIFTUP_VERSION;
+        $woocommerce_version = giftup_diagnostics::woocommerce_installed_version();
+        $php_version = phpversion();
+        global $wp_version;
 
-        if ( $current_plugin_version === NULL || strlen( $current_plugin_version ) <= 0 ) {
-            $current_plugin_version = "unknown";
+        if ( $plugin_version === NULL || strlen( $plugin_version ) <= 0 ) {
+            $plugin_version = "unknown";
+        }
+        if ( $php_version === NULL || strlen( $php_version ) <= 0 ) {
+            $php_version = "unknown";
+        }
+        if ( $wp_version === NULL || strlen( $wp_version ) <= 0 ) {
+            $wp_version = "unknown";
+        }
+        if ( $woocommerce_version === NULL || strlen( $woocommerce_version ) <= 0 ) {
+            $woocommerce_version = "unknown";
         }
 
         $args = array(
@@ -311,8 +347,11 @@ class giftup_api
                 'content-type' => 'application/json',
                 'accept' => '*/*',
                 'user-agent' => 'WordPress/GiftUp-WordPress-Plugin',
-                'x-giftup-testmode' => giftup_options::get_woocommerce_test_mode() ? "true" : "false",
-                'X-giftup-wordpress-plugin-version' => $current_plugin_version
+                'x-giftup-testmode' => giftup_options::get_woocommerce_is_in_test_mode() ? "true" : "false",
+                'x-giftup-wordpress-plugin-version' => $plugin_version,
+                'x-giftup-wordpress-php-version' => $php_version,
+                'x-giftup-wordpress-version' => $wp_version,
+                'x-giftup-woocommerce-version' => $woocommerce_version
             )
         );
         

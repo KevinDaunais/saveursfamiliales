@@ -55,8 +55,12 @@ class giftup_options
         return self::update_option( "woocommerce_apply_to_taxes", $value );
     }
 
-    public static function get_woocommerce_test_mode() {
+    public static function get_woocommerce_is_in_test_mode() {
         return current_user_can('administrator') && isset($_COOKIE["giftup_test_mode"]) && $_COOKIE["giftup_test_mode"] == "test";
+    }
+
+    public static function get_woocommerce_test_mode_cookie_set() {
+        return isset($_COOKIE["giftup_test_mode"]) && $_COOKIE["giftup_test_mode"] == "test";
     }
 
     public static function get_woocommerce_diagnostics_mode() {

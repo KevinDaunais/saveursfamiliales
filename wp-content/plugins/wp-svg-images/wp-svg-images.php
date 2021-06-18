@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: WP SVG images
-Plugin URI: https://kubiq.sk
-Description: Full SVG Media support in WordPress
-Author: KubiQ
-Version: 3.3
-Author URI: https://kubiq.sk
+	Plugin Name: WP SVG images
+	Plugin URI: https://kubiq.sk
+	Description: Full SVG Media support in WordPress
+	Version: 3.4
+	Author: KubiQ
+	Author URI: https://kubiq.sk/about
 */
 
 class WPSVG{
@@ -86,8 +86,13 @@ class WPSVG{
 	}
 
 	public function add_svg_mime( $mimes = array() ){
-		$mimes['svg'] = 'image/svg+xml';
-		$mimes['svgz'] = 'image/svg+xml';
+		if( ! defined('WP_SVG_FOR_EVERYONE') ){
+			define( 'WP_SVG_FOR_EVERYONE', false );
+		}
+		if( WP_SVG_FOR_EVERYONE || current_user_can('administrator') || current_user_can('editor') ){
+			$mimes['svg'] = 'image/svg+xml';
+			$mimes['svgz'] = 'image/svg+xml';
+		}
 		return $mimes;
 	}
 

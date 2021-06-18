@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/jakubnovaksl
 Tags: svg support, svg upload, svg thumbnail
 Requires at least: 3.0.1
 Tested up to: 5.7
-Stable tag: 3.3
+Stable tag: 3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,12 +14,23 @@ Add SVG support to your WordPress web. You can upload SVG files, you can see the
 
 Add SVG support to your WordPress web. You can upload SVG files, you can see them as thumbnails in media library, etc.
 
+## Security
+
+SVG files have XML syntax which would allow someone to inject malicious code. That's why only Administrators and Editors can upload SVG files.
+
+If you know what you are doing and you want to enable SVG upload for everyone with Media Library access or upload_files capability, then you can use WP_SVG_FOR_EVERYONE constant in your wp-config.php
+
+`define( 'WP_SVG_FOR_EVERYONE', true );`
+
 == Installation ==
 
 1. Upload `wp-svg-images` directory to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Changelog ==
+
+= 3.4 =
+* allow SVG uploads only for administrators and editors
 
 = 3.3 =
 * tested on WordPress 5.7
