@@ -30,6 +30,7 @@ class ParentTheme
         
         Template::add_action('acf/init', 'init_par_flexs');
         Template::add_filter( 'block_categories', 'block_categories', 10, 2 );
+        
 	}
 
     

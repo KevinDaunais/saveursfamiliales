@@ -1,3 +1,27 @@
 .woocommerce-cart-form{
-    
+    h1,h2,h3,h4,h5,h6,p{ @include mont;}
+
+}
+.checkout-button{ background-color: $primary!important;}
+
+.woocommerce-checkout{
+
+    h3{ @include mont('medium')}
+    p,span{@include mont; }
+
+    .col2-set{
+        padding-bottom: 100px;
+
+        .col-1{ padding: 0;}
+
+
+        input[type=text], input[type=tel], input[type=email]{ padding: 10px 0; border: 1px solid $gray-2; border-radius: 3px;}
+        textarea{border: 1px solid $gray-2; border-radius: 3px;}
+    }
+
+    .product-name{
+        font-size:14px!important;
+    }
+
+    .button{ background-color: $primary!important;}
 }

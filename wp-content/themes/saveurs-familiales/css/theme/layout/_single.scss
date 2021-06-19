@@ -1,0 +1,6 @@
+.single-product{
+    padding-top: 50px;
+
+    h1{@include bird}
+    p{ @include mont; line-height: 1.7;}
+}

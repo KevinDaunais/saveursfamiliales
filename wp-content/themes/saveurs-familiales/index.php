@@ -16,7 +16,9 @@
 				?>
 			</ul>
 		</div>
-
+		<ul class="products-filter">
+	<?php  wp_list_categories( $args );  ?>
+</ul>
 
 		<div class="post-list">
 			<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>

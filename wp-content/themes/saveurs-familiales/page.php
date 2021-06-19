@@ -4,6 +4,7 @@
 	<section class="content">
 
 		<div class="container page__layouts">
+           
 
             <?php if (have_rows('page_content')) : while (have_rows('page_content')) : the_row();
 

@@ -1,0 +1,36 @@
+.woocommerce-account{
+    p{ @include mont;}
+    h1,h2,h3,h4,h5,h6{@include mont('medium')}
+    .woocommerce-MyAccount-navigation{
+
+        ul{ padding-left: 0;}
+        li{
+            padding: 10px 0;
+            a{ 
+                @include mont; @include font-size(16px, 18px); padding: 15px 0; position: relative;
+
+                &:after{
+                    content: ""; display: block; height: 2px; width: 0px; background-color: $primary; @include transition;
+                    position: absolute; left: 0;
+                }
+
+                &:hover{
+                    &:after{ width: 100%;}
+                }
+            }
+        }
+    }
+
+    .woocommerce-Address{
+        padding: 0;
+    }
+
+    input[type=text], input[type=tel], input[type=email],  input[type=password]{ padding: 10px 0; border: 1px solid $gray-2; border-radius: 3px;}
+    
+    textarea{border: 1px solid $gray-2; border-radius: 3px;}
+
+    .woocommerce-Button{
+        font-family: 'Montserrat', sans-serif!important; background-color: inherit!important; border: 1px solid $gray-2!important; margin-top: 20px!important;
+        font-weight: 600!important;
+    }
+}
