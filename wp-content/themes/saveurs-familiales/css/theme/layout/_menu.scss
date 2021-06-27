@@ -1,10 +1,51 @@
+
+
+.woocommerce-page{
+    select{ cursor: pointer; border: 1px solid $gray-2; @include mont;}
+
+    h1{ margin-top: 52px;}
+
+    .flex__menu{ 
+        display: flex;
+
+        .sidebar{
+            position: relative; padding-right: 50px; padding-top: 63px;
+
+            .products-filter{
+                border:1px solid $gray-2; padding: 0;
+
+                li{ 
+                    list-style-type: none; padding: 15px; border-bottom: 1px solid $gray-2; width: 100%;
+
+                    a{
+                        @include mont; @include font-size(16px, 18px); padding: 15px 0; position: relative;
+
+                &:after{
+                    content: ""; display: block; height: 2px; width: 0px; background-color: $primary; @include transition;
+                    position: absolute; left: 0;
+                }
+
+                &:hover{
+                    &:after{ width: 100%;}
+                }
+                    }
+                }
+            }
+        }
+        .mobile-products-filter{ display: none;}
+
+        .menu__content{
+            width: 80%;
+        }
+    }
+}
 .woocommerce-shop{
-    .page-title{ @include bird; margin-top: 30px;}
+    .page-title{ @include mont; margin-top: 30px;}
     
     .woocommerce-result-count{@include mont;}
 
     .products{
-        display: flex; flex-wrap: wrap; justify-content: space-between;
+        display: flex; flex-wrap: wrap; justify-content: flex-start;
 
         .product{
             box-shadow: 4px 5px 5px 0px rgba(0,0,0,0.10); border:1px solid $gray-3; position: relative; padding-bottom: 50px!important;
@@ -17,4 +58,55 @@
             .price{ padding-top: 15px!important; @include font-size(14px, 16px); }
         }
     }
+
+    .flex__menu .menu__content{ width: 100%;}
+
+    .sidebar{ display: none;}
+}
+
+.dropdown__cat{ display: none;}
+
+/**********************************************************************/
+/* 768 */
+/**********************************************************************/
+
+@media ( max-width: $screen-tablet ) {
+    .woocommerce-shop{
+        .products{ display: block;}
+    }
+    
+    .woocommerce-page{
+        .flex__menu{ 
+            .sidebar{
+                padding-right: 20px; padding-top: 59px;
+            }
+        }
+    }
+}
+
+/**********************************************************************/
+/* 599 */
+/**********************************************************************/
+
+@media ( max-width: $screen-phone ) {
+
+    .woocommerce-page{
+        select{ width: 100%;}
+
+        .flex__menu{ 
+            flex-direction: column;
+            .sidebar{
+                padding-right: 0; padding-top: 20px;
+                .products-filter{
+                    display: none;
+                }
+            }
+
+            .menu__content{
+                width: 100%;
+            }
+        }
+    }
+
+    .woocommerce-ordering{display: none;}
 }

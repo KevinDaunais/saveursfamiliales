@@ -32,5 +32,58 @@
     .woocommerce-Button{
         font-family: 'Montserrat', sans-serif!important; background-color: inherit!important; border: 1px solid $gray-2!important; margin-top: 20px!important;
         font-weight: 600!important;
+        &:hover{
+            background-color: $gray-1;
+        }
+    }
+}
+
+
+.user-registration-page{
+    .user-registration{
+        border: inherit; 
+
+        form{ 
+            display: flex; justify-content: center; flex-direction: column; align-items: center;
+
+            label{ @include mont('medium'); font-weight: inherit!important;}
+        
+        }
+
+        input[type=text], input[type=tel], input[type=email],  input[type=password]{ padding: 10px 0; border: 1px solid $gray-2; border-radius: 3px;}
+
+        .ur-form-row{ max-width: 400px;}
+        .ur-button-container {
+            max-width: 400px;
+
+            button{ font-family: 'Montserrat', sans-serif!important; background-color: inherit!important; border: 1px solid $gray-2!important; margin-top: 20px!important;
+                font-weight: 400!important;
+
+                &:hover{
+                    background-color: $gray-1!important;
+                }
+            
+            }
+        }
+    }
+}
+
+#word-account{
+    .in__text{ display: flex; justify-content: center;}
+
+    .woocommerce-form-login{ max-width: 400px; margin: auto;}
+    .woocommerce{
+        width: 100%; 
+
+        h2{ text-align: center;}
+
+        button{ font-family: 'Montserrat', sans-serif!important; background-color: inherit!important; border: 1px solid $gray-2!important; margin-top: 0!important;
+            font-weight: 400!important;
+
+            &:hover{
+                background-color: $gray-1!important;
+            }
+        
+        }
     }
 }

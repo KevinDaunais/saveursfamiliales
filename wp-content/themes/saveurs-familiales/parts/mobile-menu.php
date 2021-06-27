@@ -27,8 +27,19 @@ $email   = Tools::get_meta( 'email', 'options' );
 		<?php endif; ?>
 		
 		<ul class="top-m">
-			<li><a href="<?php echo get_home_url() ?>"><?php _e( 'Accueil', 'par-design-theme' ); ?></a></li>
+			
 			<?php wp_nav_menu([ 'theme_location' => 'main-nav', 'container' => false, 'items_wrap' => '%3$s' ]); ?>
+			<div class="svg--mob">
+
+				<a href="<?php echo wc_get_cart_url() ?>"><svg class='fa fa-cart'><use xlink:href='#fa-cart'></use></svg></a>
+				
+				<?php if ( is_user_logged_in() ) { ?>
+				<a class="account" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account','woothemes'); ?>"><svg class='fa fa-account'><use xlink:href='#fa-account'></use></svg></a>
+				<?php } 
+				else { ?>
+				<a class="account" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('Login / Register','woothemes'); ?>"><svg class='fa fa-account'><use xlink:href='#fa-account'></use></svg></a>
+				<?php } ?>
+			</div>
 		</ul>
         
 	</div>

@@ -20,9 +20,9 @@ a, a:hover, a:focus		{ color: $primary; text-decoration: none; }
 a:active 				{ outline: none; }
 :-moz-any-link:focus	{ outline: none; }
 
-h1, .h1	{ @include font-size(22px,40px); }
+h1, .h1	{ @include font-size(22px,40px); @include mont }
 h2, .h2	{ @include font-size(17px,19px); @include mont('normal'); color:$gray-4; text-transform: uppercase; }
-h3, .h3	{ @include font-size(18px,28px); }
+h3, .h3	{ @include font-size(18px,28px); @include mont}
 h4, .h4	{ @include font-size(16px,24px); }
 h5, .h5	{ @include font-size(16px,18px); }
 h6, .h6	{ @include font-size(14px,16px); }

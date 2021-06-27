@@ -105,7 +105,7 @@ $animation-ms: 0, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 750,
 }
 
 @mixin container() {
-	max-width: 1440px; width: 100%; padding: 0 15px; margin: 0 auto;
+	max-width: 1640px; width: 100%; padding: 0 15px; margin: 0 auto;
 }
 
 @mixin responsive-size($property: width, $min-size: 14px, $max-size: 18px, $lower-range: 350px, $upper-range: $screen-lg-desktop, $min: true, $break: false, $max: true) {

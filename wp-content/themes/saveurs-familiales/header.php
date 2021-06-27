@@ -29,6 +29,19 @@
                 <div class="header__in">
                     <?php wp_nav_menu( [ 'theme_location' => 'main-nav', 'container' => 'nav', 'container_class' => 'main-nav-wrap', 'fallback_cb' => 'false' ] ); ?>
                     <?php get_template_part('parts/mobile-menu'); ?>
+
+					<div class="svg--top">
+
+						<a href="<?php echo wc_get_cart_url() ?>"><svg class='fa fa-cart'><use xlink:href='#fa-cart'></use></svg></a>
+						
+						<?php if ( is_user_logged_in() ) { ?>
+						<a class="account" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account','woothemes'); ?>"><svg class='fa fa-account'><use xlink:href='#fa-account'></use></svg></a>
+						<?php } 
+						else { ?>
+						<a class="account" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('Login / Register','woothemes'); ?>"><svg class='fa fa-account'><use xlink:href='#fa-account'></use></svg></a>
+						<?php } ?>
+					</div>
+
                 </div>
 			</div>
 		</header>

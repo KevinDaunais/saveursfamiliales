@@ -27,6 +27,9 @@ class ParentTheme
 
         Template::add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
         Template::add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
+        Template::add_action( 'widgets_init', 'x_my_custom_widgets_init' );
+
         
         Template::add_action('acf/init', 'init_par_flexs');
         Template::add_filter( 'block_categories', 'block_categories', 10, 2 );
@@ -65,7 +68,20 @@ class ParentTheme
     public static function mytheme_add_woocommerce_support() {
         add_theme_support( 'woocommerce' );
     }
-    
+
+    function x_my_custom_widgets_init() {
+
+        register_sidebar( array(
+          'name'          => __( 'My Shop Sidebar', '__x__' ),
+          'id'            => 'sidebar-my-custom-shop',
+          'description'   => __( 'Appears on the index shop page.', '__x__' ),
+          'before_widget' => '<div id="%1$s" class="widget %2$s">',
+          'after_widget'  => '</div>',
+          'before_title'  => '<h4 class="h-widget">',
+          'after_title'   => '</h4>',
+        ) );
+      
+    }
     
 
 	public static function enqueue_styles(){

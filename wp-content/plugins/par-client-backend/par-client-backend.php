@@ -1,4 +1,5 @@
 <?php
+use ATMK\Media;
 /**
  * Plugin Name: PAR Design backend client
  * Plugin URI: https://pardesign.net
@@ -402,7 +403,7 @@ class PAR_Client_Backend
 		</ul>
 
 		----------------------------
-		<br /><br /><img src="https://pardesign.net/login-logo.png" alt="PAR Design" />
+		<br /><br /><img src="<?php Media::img_url('logo.svg'); ?>" alt="PAR Design" />
 
 		<?php
 	}
@@ -436,10 +437,10 @@ class PAR_Client_Backend
 	public function login_message( $msg ){
 		
 		if( $this->is_lab() ){
-			return '<p class="message" style="border-left-color: #c00;">SITE DE DÉVELOPPEMENT</p>';
+			return '<p class="message" style="border-left-color: #146814;">CONNEXION</p>';
 		
 		}elseif( $this->is_local() ){
-			return '<p class="message" style="border-left-color: #0c0;">SITE LOCAL</p>';
+			return '<p class="message" style="border-left-color: #146814;">CONNEXION</p>';
 		}
 
 		return $msg;
@@ -456,8 +457,8 @@ class PAR_Client_Backend
 	public function login_logo(){ ?>
 		<style>
 		    body.login>#login a:hover { color: #00a7ca; }
-			body.login>#login p.message {  border-left: 4px solid #00a7ca; }
-			body.login { background-image: url('<?php echo $this->imgURL('par-bg.jpg'); ?>'); background-repeat: no-repeat; background-size: cover;  }
+			body.login>#login p.message {  border-left: 4px solid #146814; }
+			body.login { background-image: url('<?php echo $this->imgURL('header.jpg'); ?>'); background-repeat: no-repeat; background-size: cover;  }
 	    	.login h1 a { background-image: url('<?php echo $this->imgURL('logo.png'); ?>'); width: 186px; height: 200px; background-size: cover; margin-bottom: 20px; }
 
 			@media (max-width: 968px) { body.login .left-text, body.login .right-text { visibility: hidden;} }
@@ -484,19 +485,19 @@ class PAR_Client_Backend
 			}
 
 			#login form p.submit .button-primary {
-				width: 100%; background-color: #00a7ca; border-color: #00a7ca;
-				color: #fff; font-family: 'Gotham-Bold'; text-transform: uppercase;
+				width: 100%; background-color: #146814; border-color: darken(#146814,40%);
+				color: #f1f1f1; font-family: 'Gotham-Bold'; text-transform: uppercase;
 				font-size: 13px; letter-spacing: 0em; transition: all 0.3s ease; box-shadow: none;
 				padding:5px 0 5px 0; text-shadow: none;
 				box-sizing: content-box;
 			}
 			#login { padding-top: 200px; }
 			#loginform { padding: 26px 24px; }
-			#login form p.submit .button-primary:hover { background-color: #221F1F; color: #fff;  border-color: #221F1F; }
+			#login form p.submit .button-primary:hover { background-color: #146814; color: #fff;  border-color: #221F1F; }
 			#login form p.submit .button-primary:focus { outline: none;  }
 			#login .forgetmenot { margin: 0 0 15px 0; }
 			#login #nav, #login #backtoblog { margin: 0; }
-			#login #nav a, #login #backtoblog a { font-size: 12px; color: #fff; }
+			#login #nav a, #login #backtoblog a { font-size: 12px; color: #146814; }
 			#login #nav { margin: 10px 0 0 0; }
 		</style>
 	<?php }
